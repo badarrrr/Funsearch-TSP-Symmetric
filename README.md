@@ -29,8 +29,10 @@
 
 
 ## 运行方法
+baseline里的ortools方法要安装一下
 
 ```bash
+pip install ortools
 python main.py
 ```
 
@@ -40,6 +42,14 @@ python main.py
 * 每轮 FunSearch 优化的结果
 * 最终最佳路径长度
 
+Baseline： 在`berlin52.tsp`上的运行结果：
+
+| Solver             | Length      | Time     |
+|-------------------|------------|---------|
+| nearest_neighbor   | 8980.9183  | 0.000s  |
+| nn_best_start      | 8182.1916  | 0.023s  |
+| greedy             | 9954.0627  | 0.001s  |
+| ortools            | 7544.3659  | 30.275s |
 
 ## 后续工作
 
