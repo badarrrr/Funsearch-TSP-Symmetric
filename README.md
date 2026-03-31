@@ -1,14 +1,13 @@
+# TSP FunSearch Project
 ---
 
-# TSP FunSearch Project
 ## FunSearch for the Traveling Salesman Problem
 
 ## 简介
 
-本项目实现了一个 **FunSearch 风格的 TSP 优化算法**，结合经典最近邻（Nearest Neighbor）算法与简单进化搜索策略。
-目标：通过自动调整启发式策略参数，寻找更短的旅行路径。
+实现 **FunSearch 风格的 TSP 优化算法**，结合经典最近邻（Nearest Neighbor）算法与简单进化搜索策略。
+目标：通过自动调整启发式策略参数，寻找更短的旅行路径，与baseline算法作比较。
 
----
 
 ## 功能
 
@@ -17,7 +16,6 @@
 * **FunSearch 优化**：模拟 LLM 生成策略 + 进化搜索优化路径长度
 * **实验对比**：显示 baseline 与优化后的路径长度
 
----
 
 ## 文件说明
 
@@ -29,7 +27,6 @@
 | `main.py`       | 运行入口，展示 baseline 与 FunSearch 对比 |
 | `data/`         | 存放 TSPLib 数据文件，如 `berlin52.tsp` |
 
----
 
 ## 运行方法
 
@@ -43,14 +40,12 @@ python main.py
 * 每轮 FunSearch 优化的结果
 * 最终最佳路径长度
 
----
 
 ## 后续工作
 
 * 接 **LLM API** 自动生成更复杂策略
 * 需对比更多 baseline（如 OR-Tools、LKH）
 
----
 
 ## 参考
 
