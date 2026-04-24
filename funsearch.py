@@ -126,7 +126,7 @@ def _clean_llm_output(raw: str) -> str:
 
 def _call_llm(prompt: str, temperature: float = 0.8) -> str:
     response = client.chat.completions.create(
-        model="qwen3-6b-flash",
+        model="qwen3.6-flash",
         messages=[{"role": "user", "content": prompt}],
         max_tokens=120,
         temperature=temperature,

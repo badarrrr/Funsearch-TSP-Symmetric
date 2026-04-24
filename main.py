@@ -25,13 +25,19 @@ from funsearch  import funsearch
 SMALL_N  = 500
 MEDIUM_N = 2000
 
+# outputs 结果对应的配置
 FUNSEARCH_CFG = {
     "small":  dict(iterations=5, num_initial=5, top_k=3),
     "medium": dict(iterations=2, num_initial=3, top_k=2),
 }
 
+# FUNSEARCH_CFG = {
+#     "small":  dict(iterations=30, num_initial=8, top_k=4),   # n < 500
+#     "medium": dict(iterations=20, num_initial=5, top_k=3),   # 500 ≤ n < 2000
+# }
+
 DATA_DIR   = "data"
-OUTPUT_DIR = "outputs"
+OUTPUT_DIR = "outputs_1"
 MAX_FILES  = None     # set to None to process all
 
 os.makedirs(OUTPUT_DIR, exist_ok=True)
