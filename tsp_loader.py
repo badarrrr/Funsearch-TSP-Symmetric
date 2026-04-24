@@ -1,39 +1,45 @@
+"""
+tsp_loader.py — TSPLib .tsp file loader (EUC_2D format)
+"""
+
 import numpy as np
 
 
 def load_tsp(file_path, build_matrix=True, dtype=np.float32):
     """
-    Load TSPLib .tsp file
+    Load a TSPLib .tsp file.
 
     Parameters
     ----------
     file_path : str
     build_matrix : bool
-        Whether to build full distance matrix (O(n^2))
+        Build full O(n^2) distance matrix when True.
     dtype : numpy dtype
-        float32 is faster & saves memory
+        float32 saves memory vs float64 with negligible precision loss.
 
     Returns
     -------
-    coords : (n, 2) array
-    dist_matrix : (n, n) array or None
+    coords : (n, 2) ndarray
+    dist_matrix : (n, n) ndarray  or  None
     """
-
     coords = []
 
-    # ── 读取文件（流式，比 readlines 快且省内存）──
     with open(file_path, 'r') as f:
-        start = False
+        in_coord_section = False
         for line in f:
+            line = line.strip()
             if "NODE_COORD_SECTION" in line:
-                start = True
+                in_coord_section = True
                 continue
-            if "EOF" in line:
+            if line == "EOF":
                 break
-            if start:
+            if in_coord_section and line:
                 parts = line.split()
                 if len(parts) >= 3:
-                    coords.append((float(parts[1]), float(parts[2])))
+                    try:
+                        coords.append((float(parts[1]), float(parts[2])))
+                    except ValueError:
+                        continue  # skip malformed lines
 
     coords = np.array(coords, dtype=dtype)
     n = len(coords)
@@ -41,51 +47,49 @@ def load_tsp(file_path, build_matrix=True, dtype=np.float32):
     if n == 0:
         return coords, None
 
-    # ──────────────────────────────────────────────
-    # 小规模：构建完整距离矩阵（向量化）
-    # ──────────────────────────────────────────────
     if build_matrix:
-        # 🚀 向量化计算（比双循环快几十倍）
-        diff = coords[:, None, :] - coords[None, :, :]
-        dist_matrix = np.sqrt((diff ** 2).sum(axis=2), dtype=dtype)
-
+        # Vectorized — note: np.sqrt does NOT accept a dtype kwarg, use .astype()
+        diff = coords[:, None, :] - coords[None, :, :]              # (n, n, 2)
+        dist_matrix = np.sqrt((diff ** 2).sum(axis=2)).astype(dtype) # (n, n)
         return coords, dist_matrix
 
-    # ──────────────────────────────────────────────
-    # 大规模：不建矩阵（避免 n^2 内存）
-    # ──────────────────────────────────────────────
     return coords, None
 
 
-# ──────────────────────────────────────────────
-# 可选：按规模自动决定是否建矩阵（推荐🔥）
-# ──────────────────────────────────────────────
-
-def load_tsp_auto(file_path, threshold=5000):
+def load_tsp_auto(file_path, threshold=5000, dtype=np.float32):
     """
-    自动根据规模决定是否构建距离矩阵
+    Auto-select strategy based on instance size.
 
-    threshold : int
-        n > threshold 时不构建 dist_matrix
+    n <= threshold  →  build full dist_matrix  (threshold=5000 ≈ 100 MB @ float32)
+    n >  threshold  →  return coords only
     """
-
-    coords, _ = load_tsp(file_path, build_matrix=False)
+    coords, _ = load_tsp(file_path, build_matrix=False, dtype=dtype)
     n = len(coords)
 
+    if n == 0:
+        return coords, None
+
     if n <= threshold:
-        return load_tsp(file_path, build_matrix=True)
+        return load_tsp(file_path, build_matrix=True, dtype=dtype)
     else:
         return coords, None
 
 
-# ──────────────────────────────────────────────
-# 可选：按需计算距离（用于超大规模）
-# ──────────────────────────────────────────────
-
 def euclidean_distance(i, j, coords):
+    """On-the-fly scalar distance. Replaces dist_matrix[i][j] for large n."""
+    dx = coords[i, 0] - coords[j, 0]
+    dy = coords[i, 1] - coords[j, 1]
+    return float((dx * dx + dy * dy) ** 0.5)
+
+
+def batch_distances_from(city, candidates, coords):
     """
-    On-the-fly distance (替代 dist_matrix[i][j])
+    Vectorized distances from one city to many candidates.
+
+    Returns
+    -------
+    (len(candidates),) ndarray
     """
-    dx = coords[i][0] - coords[j][0]
-    dy = coords[i][1] - coords[j][1]
-    return (dx * dx + dy * dy) ** 0.5
+    pts  = coords[np.asarray(candidates)]
+    diff = pts - coords[city]
+    return np.sqrt((diff ** 2).sum(axis=1))
