@@ -2,15 +2,15 @@
   "a280.tsp": {
     "nearest_neighbor": {
       "length": 3148.109927177429,
-      "time": 0.9111883640289307
+      "time": 0.7278025150299072
     },
     "nn_multi_start": {
-      "length": 3150.488627433777,
-      "time": 0.2140507698059082
+      "length": 3125.8332262039185,
+      "time": 0.24455666542053223
     },
     "funsearch": {
       "length": 3148.109927177429,
-      "time": 1.43,
+      "time": 1428.25,
       "history": [
         {
           "iter": 0,
@@ -25,22 +25,22 @@
         {
           "iter": 2,
           "best": 3148.109927177429,
-          "tried": 3148.109927177429
+          "tried": 3635.9622440338135
         },
         {
           "iter": 3,
           "best": 3148.109927177429,
-          "tried": 3148.109927177429
+          "tried": 3635.9622440338135
         },
         {
           "iter": 4,
           "best": 3148.109927177429,
-          "tried": 3148.109927177429
+          "tried": 4961.092588424683
         },
         {
           "iter": 5,
           "best": 3148.109927177429,
-          "tried": 3148.109927177429
+          "tried": 50113.970123291016
         }
       ],
       "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
@@ -49,15 +49,15 @@
   "ali535.tsp": {
     "nearest_neighbor": {
       "length": 2671.068312574178,
-      "time": 0.0010330677032470703
+      "time": 0.0010008811950683594
     },
     "nn_multi_start": {
-      "length": 2459.6467730887234,
-      "time": 0.0030241012573242188
+      "length": 2460.050984490663,
+      "time": 0.0031239986419677734
     },
     "funsearch": {
-      "length": 2671.068312574178,
-      "time": 0.69,
+      "length": 2568.0831901319325,
+      "time": 158.94,
       "history": [
         {
           "iter": 0,
@@ -67,15 +67,15 @@
         {
           "iter": 1,
           "best": 2671.068312574178,
-          "tried": 2671.068312574178
+          "tried": 2919.797738302499
         },
         {
           "iter": 2,
-          "best": 2671.068312574178,
-          "tried": 2671.068312574178
+          "best": 2568.0831901319325,
+          "tried": 2568.0831901319325
         }
       ],
-      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
+      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j] + dist_matrix[j][0] / 2\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
     }
   },
   "att48.tsp": {
@@ -84,12 +84,12 @@
       "time": 0.0
     },
     "nn_multi_start": {
-      "length": 39236.884841918945,
-      "time": 0.0010006427764892578
+      "length": 39246.407485961914,
+      "time": 0.0
     },
     "funsearch": {
       "length": 40526.4207611084,
-      "time": 0.66,
+      "time": 503.07,
       "history": [
         {
           "iter": 0,
@@ -99,27 +99,27 @@
         {
           "iter": 1,
           "best": 40526.4207611084,
-          "tried": 40526.4207611084
+          "tried": 46368.12110900879
         },
         {
           "iter": 2,
           "best": 40526.4207611084,
-          "tried": 40526.4207611084
+          "tried": 46368.12110900879
         },
         {
           "iter": 3,
           "best": 40526.4207611084,
-          "tried": 40526.4207611084
+          "tried": 214742.89141845703
         },
         {
           "iter": 4,
           "best": 40526.4207611084,
-          "tried": 40526.4207611084
+          "tried": 48917.83711242676
         },
         {
           "iter": 5,
           "best": 40526.4207611084,
-          "tried": 40526.4207611084
+          "tried": 46368.12110900879
         }
       ],
       "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
@@ -128,33 +128,33 @@
   "att532.tsp": {
     "nearest_neighbor": {
       "length": 112099.44544506073,
-      "time": 0.0005297660827636719
+      "time": 0.0010018348693847656
     },
     "nn_multi_start": {
-      "length": 104559.43220424652,
-      "time": 0.004301548004150391
+      "length": 104566.81761074066,
+      "time": 0.004189252853393555
     },
     "funsearch": {
-      "length": 112099.44544506073,
-      "time": 0.68,
+      "length": 108593.48688793182,
+      "time": 138.88,
       "history": [
         {
           "iter": 0,
-          "best": 112099.44544506073,
-          "tried": 112099.44544506073
+          "best": 108593.48688793182,
+          "tried": 108593.48688793182
         },
         {
           "iter": 1,
-          "best": 112099.44544506073,
-          "tried": 112099.44544506073
+          "best": 108593.48688793182,
+          "tried": 117173.79054164886
         },
         {
           "iter": 2,
-          "best": 112099.44544506073,
-          "tried": 112099.44544506073
+          "best": 108593.48688793182,
+          "tried": 117173.79054164886
         }
       ],
-      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
+      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j] + 0.5 * dist_matrix[j][0]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
     }
   },
   "bayg29.tsp": {},
@@ -166,11 +166,11 @@
     },
     "nn_multi_start": {
       "length": 8207.608938217163,
-      "time": 0.0009961128234863281
+      "time": 0.0009932518005371094
     },
     "funsearch": {
       "length": 8980.9183177948,
-      "time": 0.62,
+      "time": 971.5,
       "history": [
         {
           "iter": 0,
@@ -180,27 +180,27 @@
         {
           "iter": 1,
           "best": 8980.9183177948,
-          "tried": 8980.9183177948
+          "tried": 10937.136976242065
         },
         {
           "iter": 2,
           "best": 8980.9183177948,
-          "tried": 8980.9183177948
+          "tried": 10937.136976242065
         },
         {
           "iter": 3,
           "best": 8980.9183177948,
-          "tried": 8980.9183177948
+          "tried": 9897.385232925415
         },
         {
           "iter": 4,
           "best": 8980.9183177948,
-          "tried": 8980.9183177948
+          "tried": 37742.591747283936
         },
         {
           "iter": 5,
           "best": 8980.9183177948,
-          "tried": 8980.9183177948
+          "tried": 9897.385232925415
         }
       ],
       "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
@@ -212,12 +212,12 @@
       "time": 0.0
     },
     "nn_multi_start": {
-      "length": 137533.28439331055,
-      "time": 0.0005373954772949219
+      "length": 136503.40884399414,
+      "time": 0.0010135173797607422
     },
     "funsearch": {
       "length": 135751.77838134766,
-      "time": 0.7,
+      "time": 863.07,
       "history": [
         {
           "iter": 0,
@@ -227,12 +227,12 @@
         {
           "iter": 1,
           "best": 135751.77838134766,
-          "tried": 135751.77838134766
+          "tried": 144681.26889038086
         },
         {
           "iter": 2,
           "best": 135751.77838134766,
-          "tried": 135751.77838134766
+          "tried": 176584.16278076172
         },
         {
           "iter": 3,
@@ -242,12 +242,12 @@
         {
           "iter": 4,
           "best": 135751.77838134766,
-          "tried": 135751.77838134766
+          "tried": 176584.16278076172
         },
         {
           "iter": 5,
           "best": 135751.77838134766,
-          "tried": 135751.77838134766
+          "tried": 176584.16278076172
         }
       ],
       "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
@@ -257,7 +257,7 @@
   "brd14051.tsp": {
     "nn_coords": {
       "length": 577037.162832392,
-      "time": 0.35428833961486816
+      "time": 0.38878750801086426
     }
   },
   "brg180.tsp": {},
@@ -268,11 +268,11 @@
     },
     "nn_multi_start": {
       "length": 31.88252979516983,
-      "time": 0.0
+      "time": 0.0010035037994384766
     },
     "funsearch": {
       "length": 38.68809908628464,
-      "time": 0.64,
+      "time": 337.99,
       "history": [
         {
           "iter": 0,
@@ -282,27 +282,27 @@
         {
           "iter": 1,
           "best": 38.68809908628464,
-          "tried": 38.68809908628464
+          "tried": 51.27884525060654
         },
         {
           "iter": 2,
           "best": 38.68809908628464,
-          "tried": 38.68809908628464
+          "tried": 51.27884525060654
         },
         {
           "iter": 3,
           "best": 38.68809908628464,
-          "tried": 38.68809908628464
+          "tried": 51.27884525060654
         },
         {
           "iter": 4,
           "best": 38.68809908628464,
-          "tried": 38.68809908628464
+          "tried": 38.74911814928055
         },
         {
           "iter": 5,
           "best": 38.68809908628464,
-          "tried": 38.68809908628464
+          "tried": 51.27884525060654
         }
       ],
       "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
@@ -314,106 +314,106 @@
       "time": 0.0
     },
     "nn_multi_start": {
-      "length": 7233.985323011875,
-      "time": 0.0005259513854980469
+      "length": 7393.628645002842,
+      "time": 0.0009996891021728516
     },
     "funsearch": {
-      "length": 7575.2862530350685,
-      "time": 0.69,
+      "length": 7338.3230038285255,
+      "time": 604.18,
       "history": [
         {
           "iter": 0,
-          "best": 7575.2862530350685,
-          "tried": 7575.2862530350685
+          "best": 7338.3230038285255,
+          "tried": 7338.3230038285255
         },
         {
           "iter": 1,
-          "best": 7575.2862530350685,
+          "best": 7338.3230038285255,
           "tried": 7575.2862530350685
         },
         {
           "iter": 2,
-          "best": 7575.2862530350685,
-          "tried": 7575.2862530350685
+          "best": 7338.3230038285255,
+          "tried": 9022.956341803074
         },
         {
           "iter": 3,
-          "best": 7575.2862530350685,
-          "tried": 7575.2862530350685
+          "best": 7338.3230038285255,
+          "tried": 52306.98317718506
         },
         {
           "iter": 4,
-          "best": 7575.2862530350685,
-          "tried": 7575.2862530350685
+          "best": 7338.3230038285255,
+          "tried": 9022.956341803074
         },
         {
           "iter": 5,
-          "best": 7575.2862530350685,
-          "tried": 7575.2862530350685
+          "best": 7338.3230038285255,
+          "tried": 9858.530662119389
         }
       ],
-      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
+      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j] + dist_matrix[j][0] * 0.5\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
     }
   },
   "ch150.tsp": {
     "nearest_neighbor": {
       "length": 8194.614195942879,
-      "time": 0.0005388259887695312
+      "time": 0.0
     },
     "nn_multi_start": {
-      "length": 7078.4445506334305,
-      "time": 0.0005567073822021484
+      "length": 7092.705033421516,
+      "time": 0.0015108585357666016
     },
     "funsearch": {
-      "length": 8194.614195942879,
-      "time": 0.7,
+      "length": 7988.134270787239,
+      "time": 537.55,
       "history": [
         {
           "iter": 0,
-          "best": 8194.614195942879,
-          "tried": 8194.614195942879
+          "best": 8092.366894841194,
+          "tried": 8092.366894841194
         },
         {
           "iter": 1,
-          "best": 8194.614195942879,
-          "tried": 8194.614195942879
+          "best": 7988.134270787239,
+          "tried": 7988.134270787239
         },
         {
           "iter": 2,
-          "best": 8194.614195942879,
-          "tried": 8194.614195942879
+          "best": 7988.134270787239,
+          "tried": 9327.154198765755
         },
         {
           "iter": 3,
-          "best": 8194.614195942879,
-          "tried": 8194.614195942879
+          "best": 7988.134270787239,
+          "tried": 9327.154198765755
         },
         {
           "iter": 4,
-          "best": 8194.614195942879,
-          "tried": 8194.614195942879
+          "best": 7988.134270787239,
+          "tried": 8836.282111287117
         },
         {
           "iter": 5,
-          "best": 8194.614195942879,
-          "tried": 8194.614195942879
+          "best": 7988.134270787239,
+          "tried": 8836.282111287117
         }
       ],
-      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
+      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j] + dist_matrix[j][0] / 10\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
     }
   },
   "d1291.tsp": {
     "nearest_neighbor": {
       "length": 60996.354263305664,
-      "time": 0.0010714530944824219
+      "time": 0.0010008811950683594
     },
     "nn_multi_start": {
-      "length": 60227.51593017578,
-      "time": 0.016829252243041992
+      "length": 59404.452129364014,
+      "time": 0.019661903381347656
     },
     "funsearch": {
       "length": 60996.354263305664,
-      "time": 2.37,
+      "time": 108.73,
       "history": [
         {
           "iter": 0,
@@ -423,12 +423,12 @@
         {
           "iter": 1,
           "best": 60996.354263305664,
-          "tried": 60996.354263305664
+          "tried": 71901.24808883667
         },
         {
           "iter": 2,
           "best": 60996.354263305664,
-          "tried": 60996.354263305664
+          "tried": 71901.24808883667
         }
       ],
       "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
@@ -437,21 +437,21 @@
   "d15112.tsp": {
     "nn_coords": {
       "length": 1948433.333407858,
-      "time": 0.14076948165893555
+      "time": 0.1426537036895752
     }
   },
   "d1655.tsp": {
     "nearest_neighbor": {
       "length": 73939.4216003418,
-      "time": 0.002000093460083008
+      "time": 0.0010046958923339844
     },
     "nn_multi_start": {
-      "length": 73939.4216003418,
-      "time": 0.029000043869018555
+      "length": 74681.18804359436,
+      "time": 0.03157448768615723
     },
     "funsearch": {
       "length": 73939.4216003418,
-      "time": 3.73,
+      "time": 287.29,
       "history": [
         {
           "iter": 0,
@@ -461,12 +461,12 @@
         {
           "iter": 1,
           "best": 73939.4216003418,
-          "tried": 73939.4216003418
+          "tried": 83475.061794281
         },
         {
           "iter": 2,
           "best": 73939.4216003418,
-          "tried": 73939.4216003418
+          "tried": 83475.061794281
         }
       ],
       "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
@@ -475,7 +475,7 @@
   "d18512.tsp": {
     "nn_coords": {
       "length": 797562.3211602649,
-      "time": 0.22222661972045898
+      "time": 0.24156880378723145
     }
   },
   "d198.tsp": {
@@ -484,145 +484,145 @@
       "time": 0.0
     },
     "nn_multi_start": {
-      "length": 18072.09150314331,
-      "time": 0.001004934310913086
+      "length": 18265.980144500732,
+      "time": 0.0009996891021728516
     },
     "funsearch": {
-      "length": 18655.489181518555,
-      "time": 0.73,
+      "length": 18374.009397506714,
+      "time": 442.83,
       "history": [
         {
           "iter": 0,
-          "best": 18655.489181518555,
-          "tried": 18655.489181518555
+          "best": 18374.009397506714,
+          "tried": 18374.009397506714
         },
         {
           "iter": 1,
-          "best": 18655.489181518555,
+          "best": 18374.009397506714,
           "tried": 18655.489181518555
         },
         {
           "iter": 2,
-          "best": 18655.489181518555,
-          "tried": 18655.489181518555
+          "best": 18374.009397506714,
+          "tried": 18676.747091293335
         },
         {
           "iter": 3,
-          "best": 18655.489181518555,
-          "tried": 18655.489181518555
+          "best": 18374.009397506714,
+          "tried": 19128.60361480713
         },
         {
           "iter": 4,
-          "best": 18655.489181518555,
-          "tried": 18655.489181518555
+          "best": 18374.009397506714,
+          "tried": 19146.54189300537
         },
         {
           "iter": 5,
-          "best": 18655.489181518555,
-          "tried": 18655.489181518555
+          "best": 18374.009397506714,
+          "tried": 25882.748125076294
         }
       ],
-      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
+      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j] + 0.5 * dist_matrix[j][0]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
     }
   },
   "d2103.tsp": {
     "nearest_neighbor": {
       "length": 90517.88981246948,
-      "time": 0.0036270618438720703
+      "time": 0.0035064220428466797
     }
   },
   "d493.tsp": {
     "nearest_neighbor": {
       "length": 43646.374002456665,
-      "time": 0.0005285739898681641
+      "time": 0.0
     },
     "nn_multi_start": {
-      "length": 41920.635610580444,
-      "time": 0.003208637237548828
+      "length": 42353.23575401306,
+      "time": 0.00399470329284668
     },
     "funsearch": {
-      "length": 43646.374002456665,
-      "time": 2.57,
+      "length": 42802.14805030823,
+      "time": 635.48,
       "history": [
         {
           "iter": 0,
-          "best": 43646.374002456665,
-          "tried": 43646.374002456665
+          "best": 42802.14805030823,
+          "tried": 42802.14805030823
         },
         {
           "iter": 1,
-          "best": 43646.374002456665,
-          "tried": 43646.374002456665
+          "best": 42802.14805030823,
+          "tried": 44695.95459938049
         },
         {
           "iter": 2,
-          "best": 43646.374002456665,
-          "tried": 43646.374002456665
+          "best": 42802.14805030823,
+          "tried": 44695.95459938049
         },
         {
           "iter": 3,
-          "best": 43646.374002456665,
-          "tried": 43646.374002456665
+          "best": 42802.14805030823,
+          "tried": 44695.95459938049
         },
         {
           "iter": 4,
-          "best": 43646.374002456665,
-          "tried": 43646.374002456665
+          "best": 42802.14805030823,
+          "tried": 45998.09631347656
         },
         {
           "iter": 5,
-          "best": 43646.374002456665,
-          "tried": 43646.374002456665
+          "best": 42802.14805030823,
+          "tried": 44695.95459938049
         }
       ],
-      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
+      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = 0.7 * dist_matrix[current][j] + 0.3 * dist_matrix[j][0]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
     }
   },
   "d657.tsp": {
     "nearest_neighbor": {
       "length": 61874.11686515808,
-      "time": 0.0
+      "time": 0.0010018348693847656
     },
     "nn_multi_start": {
-      "length": 61206.904304504395,
-      "time": 0.00508880615234375
+      "length": 61444.03476142883,
+      "time": 0.004526853561401367
     },
     "funsearch": {
-      "length": 61874.11686515808,
-      "time": 1.22,
+      "length": 61214.39874267578,
+      "time": 275.55,
       "history": [
         {
           "iter": 0,
-          "best": 61874.11686515808,
-          "tried": 61874.11686515808
+          "best": 61214.39874267578,
+          "tried": 61214.39874267578
         },
         {
           "iter": 1,
-          "best": 61874.11686515808,
-          "tried": 61874.11686515808
+          "best": 61214.39874267578,
+          "tried": 66191.69659423828
         },
         {
           "iter": 2,
-          "best": 61874.11686515808,
-          "tried": 61874.11686515808
+          "best": 61214.39874267578,
+          "tried": 66191.69659423828
         }
       ],
-      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
+      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j] + 0.5 * dist_matrix[j][0]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
     }
   },
   "dantzig42.tsp": {},
   "dsj1000.tsp": {
     "nearest_neighbor": {
       "length": 24630960.090393066,
-      "time": 0.0010013580322265625
+      "time": 0.0015964508056640625
     },
     "nn_multi_start": {
-      "length": 23270050.61968994,
-      "time": 0.01141810417175293
+      "length": 23402008.61920166,
+      "time": 0.013908624649047852
     },
     "funsearch": {
       "length": 24630960.090393066,
-      "time": 1.61,
+      "time": 108.07,
       "history": [
         {
           "iter": 0,
@@ -632,12 +632,12 @@
         {
           "iter": 1,
           "best": 24630960.090393066,
-          "tried": 24630960.090393066
+          "tried": 26101431.65777588
         },
         {
           "iter": 2,
           "best": 24630960.090393066,
-          "tried": 24630960.090393066
+          "tried": 26101431.65777588
         }
       ],
       "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
@@ -649,12 +649,12 @@
       "time": 0.0
     },
     "nn_multi_start": {
-      "length": 736.3684393167496,
-      "time": 0.0010480880737304688
+      "length": 750.4765430688858,
+      "time": 0.0
     },
     "funsearch": {
       "length": 825.2423206567764,
-      "time": 0.72,
+      "time": 406.37,
       "history": [
         {
           "iter": 0,
@@ -664,7 +664,7 @@
         {
           "iter": 1,
           "best": 825.2423206567764,
-          "tried": 825.2423206567764
+          "tried": 967.3110512495041
         },
         {
           "iter": 2,
@@ -674,17 +674,17 @@
         {
           "iter": 3,
           "best": 825.2423206567764,
-          "tried": 825.2423206567764
+          "tried": 4864.203339576721
         },
         {
           "iter": 4,
           "best": 825.2423206567764,
-          "tried": 825.2423206567764
+          "tried": 967.3110512495041
         },
         {
           "iter": 5,
           "best": 825.2423206567764,
-          "tried": 825.2423206567764
+          "tried": 967.3110512495041
         }
       ],
       "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
@@ -697,11 +697,11 @@
     },
     "nn_multi_start": {
       "length": 507.9964439868927,
-      "time": 0.0
+      "time": 0.0009999275207519531
     },
     "funsearch": {
       "length": 513.6100060939789,
-      "time": 0.64,
+      "time": 313.75,
       "history": [
         {
           "iter": 0,
@@ -711,27 +711,27 @@
         {
           "iter": 1,
           "best": 513.6100060939789,
-          "tried": 513.6100060939789
+          "tried": 587.2488114833832
         },
         {
           "iter": 2,
           "best": 513.6100060939789,
-          "tried": 513.6100060939789
+          "tried": 587.2488114833832
         },
         {
           "iter": 3,
           "best": 513.6100060939789,
-          "tried": 513.6100060939789
+          "tried": 587.2488114833832
         },
         {
           "iter": 4,
           "best": 513.6100060939789,
-          "tried": 513.6100060939789
+          "tried": 543.1974484920502
         },
         {
           "iter": 5,
           "best": 513.6100060939789,
-          "tried": 513.6100060939789
+          "tried": 587.2488114833832
         }
       ],
       "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
@@ -743,59 +743,59 @@
       "time": 0.0
     },
     "nn_multi_start": {
-      "length": 619.4120028018951,
-      "time": 0.0005395412445068359
+      "length": 612.6558220386505,
+      "time": 0.0
     },
     "funsearch": {
-      "length": 711.9932935237885,
-      "time": 0.65,
+      "length": 662.4362990856171,
+      "time": 478.04,
       "history": [
         {
           "iter": 0,
-          "best": 711.9932935237885,
-          "tried": 711.9932935237885
+          "best": 667.7586061954498,
+          "tried": 667.7586061954498
         },
         {
           "iter": 1,
-          "best": 711.9932935237885,
-          "tried": 711.9932935237885
+          "best": 667.7586061954498,
+          "tried": 754.0527808666229
         },
         {
           "iter": 2,
-          "best": 711.9932935237885,
-          "tried": 711.9932935237885
+          "best": 667.7586061954498,
+          "tried": 754.0527808666229
         },
         {
           "iter": 3,
-          "best": 711.9932935237885,
-          "tried": 711.9932935237885
+          "best": 667.7586061954498,
+          "tried": 743.0451257228851
         },
         {
           "iter": 4,
-          "best": 711.9932935237885,
-          "tried": 711.9932935237885
+          "best": 667.7586061954498,
+          "tried": 754.0527808666229
         },
         {
           "iter": 5,
-          "best": 711.9932935237885,
-          "tried": 711.9932935237885
+          "best": 662.4362990856171,
+          "tried": 662.4362990856171
         }
       ],
-      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
+      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j] + dist_matrix[j][current] + dist_matrix[j][0]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
     }
   },
   "fl1400.tsp": {
     "nearest_neighbor": {
       "length": 27061.37427854538,
-      "time": 0.0010025501251220703
+      "time": 0.0009946823120117188
     },
     "nn_multi_start": {
-      "length": 24451.32672548294,
-      "time": 0.020487546920776367
+      "length": 25230.546235084534,
+      "time": 0.022530317306518555
     },
     "funsearch": {
       "length": 27061.37427854538,
-      "time": 2.74,
+      "time": 74.37,
       "history": [
         {
           "iter": 0,
@@ -805,12 +805,12 @@
         {
           "iter": 1,
           "best": 27061.37427854538,
-          "tried": 27061.37427854538
+          "tried": 27469.456755161285
         },
         {
           "iter": 2,
           "best": 27061.37427854538,
-          "tried": 27061.37427854538
+          "tried": 27469.456755161285
         }
       ],
       "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
@@ -819,92 +819,92 @@
   "fl1577.tsp": {
     "nearest_neighbor": {
       "length": 29186.231221199036,
-      "time": 0.001007080078125
+      "time": 0.0010993480682373047
     },
     "nn_multi_start": {
-      "length": 26323.828997612,
-      "time": 0.02594590187072754
+      "length": 26699.323049545288,
+      "time": 0.03273487091064453
     },
     "funsearch": {
-      "length": 29186.231221199036,
-      "time": 3.43,
+      "length": 27152.72289276123,
+      "time": 106.67,
       "history": [
         {
           "iter": 0,
-          "best": 29186.231221199036,
-          "tried": 29186.231221199036
+          "best": 27152.72289276123,
+          "tried": 27152.72289276123
         },
         {
           "iter": 1,
-          "best": 29186.231221199036,
+          "best": 27152.72289276123,
           "tried": 29186.231221199036
         },
         {
           "iter": 2,
-          "best": 29186.231221199036,
-          "tried": 29186.231221199036
+          "best": 27152.72289276123,
+          "tried": 29901.433455467224
         }
       ],
-      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
+      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j] + 0.5 * dist_matrix[j][0]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
     }
   },
   "fl3795.tsp": {
     "nearest_neighbor": {
       "length": 35344.759199142456,
-      "time": 0.012145757675170898
+      "time": 0.009831905364990234
     }
   },
   "fl417.tsp": {
     "nearest_neighbor": {
       "length": 15737.093468666077,
-      "time": 0.0
+      "time": 0.0009984970092773438
     },
     "nn_multi_start": {
-      "length": 15093.162197113037,
-      "time": 0.0013000965118408203
+      "length": 14758.519806861877,
+      "time": 0.0030663013458251953
     },
     "funsearch": {
-      "length": 15737.093468666077,
-      "time": 1.07,
+      "length": 15073.816885948181,
+      "time": 449.91,
       "history": [
         {
           "iter": 0,
-          "best": 15737.093468666077,
-          "tried": 15737.093468666077
+          "best": 15579.245789527893,
+          "tried": 15579.245789527893
         },
         {
           "iter": 1,
-          "best": 15737.093468666077,
-          "tried": 15737.093468666077
+          "best": 15579.245789527893,
+          "tried": 775593.7147979736
         },
         {
           "iter": 2,
-          "best": 15737.093468666077,
-          "tried": 15737.093468666077
+          "best": 15579.245789527893,
+          "tried": 15981.608219146729
         },
         {
           "iter": 3,
-          "best": 15737.093468666077,
-          "tried": 15737.093468666077
+          "best": 15579.245789527893,
+          "tried": 15981.608219146729
         },
         {
           "iter": 4,
-          "best": 15737.093468666077,
-          "tried": 15737.093468666077
+          "best": 15579.245789527893,
+          "tried": 17086.18322467804
         },
         {
           "iter": 5,
-          "best": 15737.093468666077,
-          "tried": 15737.093468666077
+          "best": 15073.816885948181,
+          "tried": 15073.816885948181
         }
       ],
-      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
+      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j] + dist_matrix[j][current] + dist_matrix[j][0]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
     }
   },
   "fnl4461.tsp": {
     "nearest_neighbor": {
       "length": 227156.60797786713,
-      "time": 0.016587018966674805
+      "time": 0.014529943466186523
     }
   },
   "fri26.tsp": {},
@@ -914,45 +914,45 @@
       "time": 0.0
     },
     "nn_multi_start": {
-      "length": 2935.6938067674637,
-      "time": 0.0009996891021728516
+      "length": 2883.6888567209244,
+      "time": 0.0014081001281738281
     },
     "funsearch": {
-      "length": 3241.466826558113,
-      "time": 0.81,
+      "length": 3064.72907269001,
+      "time": 349.66,
       "history": [
         {
           "iter": 0,
-          "best": 3241.466826558113,
-          "tried": 3241.466826558113
+          "best": 3064.72907269001,
+          "tried": 3064.72907269001
         },
         {
           "iter": 1,
-          "best": 3241.466826558113,
-          "tried": 3241.466826558113
+          "best": 3064.72907269001,
+          "tried": 3219.2591112852097
         },
         {
           "iter": 2,
-          "best": 3241.466826558113,
-          "tried": 3241.466826558113
+          "best": 3064.72907269001,
+          "tried": 3219.2591112852097
         },
         {
           "iter": 3,
-          "best": 3241.466826558113,
-          "tried": 3241.466826558113
+          "best": 3064.72907269001,
+          "tried": 3219.2591112852097
         },
         {
           "iter": 4,
-          "best": 3241.466826558113,
-          "tried": 3241.466826558113
+          "best": 3064.72907269001,
+          "tried": 3064.72907269001
         },
         {
           "iter": 5,
-          "best": 3241.466826558113,
-          "tried": 3241.466826558113
+          "best": 3064.72907269001,
+          "tried": 3219.2591112852097
         }
       ],
-      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
+      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j] + 0.5 * dist_matrix[j][0]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
     }
   },
   "gr120.tsp": {},
@@ -962,45 +962,45 @@
       "time": 0.0
     },
     "nn_multi_start": {
-      "length": 932.4321292638779,
-      "time": 0.0010197162628173828
+      "length": 931.5156046152115,
+      "time": 0.0
     },
     "funsearch": {
-      "length": 1022.2210088968277,
-      "time": 0.7,
+      "length": 937.1161420345306,
+      "time": 737.3,
       "history": [
         {
           "iter": 0,
-          "best": 1022.2210088968277,
-          "tried": 1022.2210088968277
+          "best": 937.1161420345306,
+          "tried": 937.1161420345306
         },
         {
           "iter": 1,
-          "best": 1022.2210088968277,
-          "tried": 1022.2210088968277
+          "best": 937.1161420345306,
+          "tried": 937.1161420345306
         },
         {
           "iter": 2,
-          "best": 1022.2210088968277,
-          "tried": 1022.2210088968277
+          "best": 937.1161420345306,
+          "tried": 1019.5471489429474
         },
         {
           "iter": 3,
-          "best": 1022.2210088968277,
-          "tried": 1022.2210088968277
+          "best": 937.1161420345306,
+          "tried": 1035.648240685463
         },
         {
           "iter": 4,
-          "best": 1022.2210088968277,
-          "tried": 1022.2210088968277
+          "best": 937.1161420345306,
+          "tried": 1063.8942375183105
         },
         {
           "iter": 5,
-          "best": 1022.2210088968277,
-          "tried": 1022.2210088968277
+          "best": 937.1161420345306,
+          "tried": 1035.648240685463
         }
       ],
-      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
+      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = (dist_matrix[current][j] + dist_matrix[j][0]) ** 0.5\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
     }
   },
   "gr17.tsp": {},
@@ -1010,45 +1010,45 @@
       "time": 0.0
     },
     "nn_multi_start": {
-      "length": 580.753830447793,
-      "time": 0.0015096664428710938
+      "length": 580.5174859017134,
+      "time": 0.0
     },
     "funsearch": {
-      "length": 619.3953496366739,
-      "time": 0.74,
+      "length": 568.4241872429848,
+      "time": 800.93,
       "history": [
         {
           "iter": 0,
-          "best": 619.3953496366739,
-          "tried": 619.3953496366739
+          "best": 593.2564086019993,
+          "tried": 593.2564086019993
         },
         {
           "iter": 1,
-          "best": 619.3953496366739,
-          "tried": 619.3953496366739
+          "best": 593.2564086019993,
+          "tried": 787.2519319206476
         },
         {
           "iter": 2,
-          "best": 619.3953496366739,
-          "tried": 619.3953496366739
+          "best": 593.2564086019993,
+          "tried": 680.8612855672836
         },
         {
           "iter": 3,
-          "best": 619.3953496366739,
-          "tried": 619.3953496366739
+          "best": 593.2564086019993,
+          "tried": 653.6763337850571
         },
         {
           "iter": 4,
-          "best": 619.3953496366739,
-          "tried": 619.3953496366739
+          "best": 593.2564086019993,
+          "tried": 597.7788074314594
         },
         {
           "iter": 5,
-          "best": 619.3953496366739,
-          "tried": 619.3953496366739
+          "best": 568.4241872429848,
+          "tried": 568.4241872429848
         }
       ],
-      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
+      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j] ** 1.3 + 0.4 * dist_matrix[j][0] - 0.2 * dist_matrix[j][current]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
     }
   },
   "gr21.tsp": {},
@@ -1058,12 +1058,12 @@
       "time": 0.0
     },
     "nn_multi_start": {
-      "length": 1991.8948398530483,
-      "time": 0.0005512237548828125
+      "length": 2012.28034850955,
+      "time": 0.0
     },
     "funsearch": {
       "length": 2014.7106213271618,
-      "time": 0.94,
+      "time": 547.56,
       "history": [
         {
           "iter": 0,
@@ -1078,22 +1078,22 @@
         {
           "iter": 2,
           "best": 2014.7106213271618,
-          "tried": 2014.7106213271618
+          "tried": 2072.025985687971
         },
         {
           "iter": 3,
           "best": 2014.7106213271618,
-          "tried": 2014.7106213271618
+          "tried": 2100.23353394866
         },
         {
           "iter": 4,
           "best": 2014.7106213271618,
-          "tried": 2014.7106213271618
+          "tried": 21421.905167341232
         },
         {
           "iter": 5,
           "best": 2014.7106213271618,
-          "tried": 2014.7106213271618
+          "tried": 2072.025985687971
         }
       ],
       "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
@@ -1103,15 +1103,15 @@
   "gr431.tsp": {
     "nearest_neighbor": {
       "length": 2516.2471757382154,
-      "time": 0.0014662742614746094
+      "time": 0.0010750293731689453
     },
     "nn_multi_start": {
-      "length": 2452.8986892551184,
-      "time": 0.0022590160369873047
+      "length": 2448.848240658641,
+      "time": 0.002000093460083008
     },
     "funsearch": {
-      "length": 2516.2471757382154,
-      "time": 1.1,
+      "length": 2420.554998934269,
+      "time": 436.34,
       "history": [
         {
           "iter": 0,
@@ -1121,63 +1121,63 @@
         {
           "iter": 1,
           "best": 2516.2471757382154,
-          "tried": 2516.2471757382154
+          "tried": 2547.2989643514156
         },
         {
           "iter": 2,
           "best": 2516.2471757382154,
-          "tried": 2516.2471757382154
+          "tried": 2547.2989643514156
         },
         {
           "iter": 3,
           "best": 2516.2471757382154,
-          "tried": 2516.2471757382154
+          "tried": 2547.2989643514156
         },
         {
           "iter": 4,
           "best": 2516.2471757382154,
-          "tried": 2516.2471757382154
+          "tried": 2644.3066431581974
         },
         {
           "iter": 5,
-          "best": 2516.2471757382154,
-          "tried": 2516.2471757382154
+          "best": 2420.554998934269,
+          "tried": 2420.554998934269
         }
       ],
-      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
+      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j] + dist_matrix[j][0] * 0.5\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
     }
   },
   "gr48.tsp": {},
   "gr666.tsp": {
     "nearest_neighbor": {
       "length": 4110.899800680578,
-      "time": 0.0
+      "time": 0.0013747215270996094
     },
     "nn_multi_start": {
-      "length": 3871.533981062472,
-      "time": 0.0047435760498046875
+      "length": 3906.752911426127,
+      "time": 0.005006074905395508
     },
     "funsearch": {
-      "length": 4110.899800680578,
-      "time": 0.9,
+      "length": 3886.127293355763,
+      "time": 281.61,
       "history": [
         {
           "iter": 0,
-          "best": 4110.899800680578,
-          "tried": 4110.899800680578
+          "best": 3886.127293355763,
+          "tried": 3886.127293355763
         },
         {
           "iter": 1,
-          "best": 4110.899800680578,
-          "tried": 4110.899800680578
+          "best": 3886.127293355763,
+          "tried": 4230.366052083671
         },
         {
           "iter": 2,
-          "best": 4110.899800680578,
-          "tried": 4110.899800680578
+          "best": 3886.127293355763,
+          "tried": 3886.127293355763
         }
       ],
-      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
+      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j] ** 0.7 / (dist_matrix[j][0] + 1)\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
     }
   },
   "gr96.tsp": {
@@ -1186,45 +1186,45 @@
       "time": 0.0
     },
     "nn_multi_start": {
-      "length": 628.5192253515124,
-      "time": 0.0
+      "length": 617.1511909887195,
+      "time": 0.0010390281677246094
     },
     "funsearch": {
-      "length": 707.0899978801608,
-      "time": 0.65,
+      "length": 635.6826134845614,
+      "time": 489.72,
       "history": [
         {
           "iter": 0,
-          "best": 707.0899978801608,
-          "tried": 707.0899978801608
+          "best": 635.6826134845614,
+          "tried": 635.6826134845614
         },
         {
           "iter": 1,
-          "best": 707.0899978801608,
-          "tried": 707.0899978801608
+          "best": 635.6826134845614,
+          "tried": 664.5803584977984
         },
         {
           "iter": 2,
-          "best": 707.0899978801608,
-          "tried": 707.0899978801608
+          "best": 635.6826134845614,
+          "tried": 664.5803584977984
         },
         {
           "iter": 3,
-          "best": 707.0899978801608,
-          "tried": 707.0899978801608
+          "best": 635.6826134845614,
+          "tried": 635.6826134845614
         },
         {
           "iter": 4,
-          "best": 707.0899978801608,
-          "tried": 707.0899978801608
+          "best": 635.6826134845614,
+          "tried": 669.1193481609225
         },
         {
           "iter": 5,
-          "best": 707.0899978801608,
-          "tried": 707.0899978801608
+          "best": 635.6826134845614,
+          "tried": 3744.3082242012024
         }
       ],
-      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
+      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j] + 0.5 * dist_matrix[j][0]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
     }
   },
   "hk48.tsp": {},
@@ -1234,12 +1234,12 @@
       "time": 0.0
     },
     "nn_multi_start": {
-      "length": 25421.831016540527,
-      "time": 0.0
+      "length": 25944.937538146973,
+      "time": 0.0010042190551757812
     },
     "funsearch": {
       "length": 26856.388557434082,
-      "time": 0.67,
+      "time": 180.19,
       "history": [
         {
           "iter": 0,
@@ -1254,22 +1254,22 @@
         {
           "iter": 2,
           "best": 26856.388557434082,
-          "tried": 26856.388557434082
+          "tried": 31733.292865753174
         },
         {
           "iter": 3,
           "best": 26856.388557434082,
-          "tried": 26856.388557434082
+          "tried": 31733.292865753174
         },
         {
           "iter": 4,
           "best": 26856.388557434082,
-          "tried": 26856.388557434082
+          "tried": 31733.292865753174
         },
         {
           "iter": 5,
           "best": 26856.388557434082,
-          "tried": 26856.388557434082
+          "tried": 248547.02319335938
         }
       ],
       "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
@@ -1281,12 +1281,12 @@
       "time": 0.0
     },
     "nn_multi_start": {
-      "length": 32117.08172225952,
-      "time": 0.0005431175231933594
+      "length": 31482.019985198975,
+      "time": 0.0
     },
     "funsearch": {
       "length": 33609.866985321045,
-      "time": 0.67,
+      "time": 180.73,
       "history": [
         {
           "iter": 0,
@@ -1301,12 +1301,12 @@
         {
           "iter": 2,
           "best": 33609.866985321045,
-          "tried": 33609.866985321045
+          "tried": 37797.3352394104
         },
         {
           "iter": 3,
           "best": 33609.866985321045,
-          "tried": 33609.866985321045
+          "tried": 38215.33702850342
         },
         {
           "iter": 4,
@@ -1316,7 +1316,7 @@
         {
           "iter": 5,
           "best": 33609.866985321045,
-          "tried": 33609.866985321045
+          "tried": 38215.33702850342
         }
       ],
       "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
@@ -1329,11 +1329,11 @@
     },
     "nn_multi_start": {
       "length": 34547.69068336487,
-      "time": 0.0010080337524414062
+      "time": 0.0011186599731445312
     },
     "funsearch": {
       "length": 35798.40902519226,
-      "time": 0.74,
+      "time": 360.11,
       "history": [
         {
           "iter": 0,
@@ -1343,17 +1343,17 @@
         {
           "iter": 1,
           "best": 35798.40902519226,
-          "tried": 35798.40902519226
+          "tried": 42690.899324417114
         },
         {
           "iter": 2,
           "best": 35798.40902519226,
-          "tried": 35798.40902519226
+          "tried": 42690.899324417114
         },
         {
           "iter": 3,
           "best": 35798.40902519226,
-          "tried": 35798.40902519226
+          "tried": 40491.19011878967
         },
         {
           "iter": 4,
@@ -1363,7 +1363,7 @@
         {
           "iter": 5,
           "best": 35798.40902519226,
-          "tried": 35798.40902519226
+          "tried": 42690.899324417114
         }
       ],
       "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
@@ -1375,12 +1375,12 @@
       "time": 0.0
     },
     "nn_multi_start": {
-      "length": 25996.893590927124,
-      "time": 0.0014677047729492188
+      "length": 25883.806295394897,
+      "time": 0.0
     },
     "funsearch": {
-      "length": 29155.043607711792,
-      "time": 0.63,
+      "length": 28588.727041244507,
+      "time": 447.11,
       "history": [
         {
           "iter": 0,
@@ -1390,30 +1390,30 @@
         {
           "iter": 1,
           "best": 29155.043607711792,
-          "tried": 29155.043607711792
+          "tried": 32326.389638900757
         },
         {
           "iter": 2,
           "best": 29155.043607711792,
-          "tried": 29155.043607711792
+          "tried": 32326.389638900757
         },
         {
           "iter": 3,
           "best": 29155.043607711792,
-          "tried": 29155.043607711792
+          "tried": 32326.389638900757
         },
         {
           "iter": 4,
-          "best": 29155.043607711792,
-          "tried": 29155.043607711792
+          "best": 28588.727041244507,
+          "tried": 28588.727041244507
         },
         {
           "iter": 5,
-          "best": 29155.043607711792,
+          "best": 28588.727041244507,
           "tried": 29155.043607711792
         }
       ],
-      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
+      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j] + dist_matrix[j][current] + dist_matrix[j][0]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
     }
   },
   "kroB150.tsp": {
@@ -1422,12 +1422,12 @@
       "time": 0.0
     },
     "nn_multi_start": {
-      "length": 31320.34051322937,
-      "time": 0.0005283355712890625
+      "length": 32038.450231552124,
+      "time": 0.0016086101531982422
     },
     "funsearch": {
       "length": 32825.74981498718,
-      "time": 0.68,
+      "time": 301.2,
       "history": [
         {
           "iter": 0,
@@ -1437,12 +1437,12 @@
         {
           "iter": 1,
           "best": 32825.74981498718,
-          "tried": 32825.74981498718
+          "tried": 36800.000745773315
         },
         {
           "iter": 2,
           "best": 32825.74981498718,
-          "tried": 32825.74981498718
+          "tried": 36800.000745773315
         },
         {
           "iter": 3,
@@ -1452,12 +1452,12 @@
         {
           "iter": 4,
           "best": 32825.74981498718,
-          "tried": 32825.74981498718
+          "tried": 36800.000745773315
         },
         {
           "iter": 5,
           "best": 32825.74981498718,
-          "tried": 32825.74981498718
+          "tried": 363214.7152557373
         }
       ],
       "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
@@ -1469,12 +1469,12 @@
       "time": 0.0
     },
     "nn_multi_start": {
-      "length": 35780.5700712204,
-      "time": 0.0005066394805908203
+      "length": 35394.008803367615,
+      "time": 0.001026153564453125
     },
     "funsearch": {
       "length": 36981.58999156952,
-      "time": 0.74,
+      "time": 402.26,
       "history": [
         {
           "iter": 0,
@@ -1484,27 +1484,27 @@
         {
           "iter": 1,
           "best": 36981.58999156952,
-          "tried": 36981.58999156952
+          "tried": 42711.69631099701
         },
         {
           "iter": 2,
           "best": 36981.58999156952,
-          "tried": 36981.58999156952
+          "tried": 42711.69631099701
         },
         {
           "iter": 3,
           "best": 36981.58999156952,
-          "tried": 36981.58999156952
+          "tried": 40660.37208843231
         },
         {
           "iter": 4,
           "best": 36981.58999156952,
-          "tried": 36981.58999156952
+          "tried": 486015.41078948975
         },
         {
           "iter": 5,
           "best": 36981.58999156952,
-          "tried": 36981.58999156952
+          "tried": 486015.41078948975
         }
       ],
       "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
@@ -1516,12 +1516,12 @@
       "time": 0.0
     },
     "nn_multi_start": {
-      "length": 23566.403045654297,
+      "length": 24459.25259399414,
       "time": 0.0
     },
     "funsearch": {
       "length": 26327.361862182617,
-      "time": 0.65,
+      "time": 477.54,
       "history": [
         {
           "iter": 0,
@@ -1536,7 +1536,7 @@
         {
           "iter": 2,
           "best": 26327.361862182617,
-          "tried": 26327.361862182617
+          "tried": 30303.559844970703
         },
         {
           "iter": 3,
@@ -1546,12 +1546,12 @@
         {
           "iter": 4,
           "best": 26327.361862182617,
-          "tried": 26327.361862182617
+          "tried": 30303.559844970703
         },
         {
           "iter": 5,
           "best": 26327.361862182617,
-          "tried": 26327.361862182617
+          "tried": 30303.559844970703
         }
       ],
       "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
@@ -1563,59 +1563,59 @@
       "time": 0.0
     },
     "nn_multi_start": {
-      "length": 25250.96884727478,
-      "time": 0.0
+      "length": 25028.5272731781,
+      "time": 0.0014667510986328125
     },
     "funsearch": {
-      "length": 26950.46118736267,
-      "time": 0.65,
+      "length": 26392.479871749878,
+      "time": 438.6,
       "history": [
         {
           "iter": 0,
-          "best": 26950.46118736267,
-          "tried": 26950.46118736267
+          "best": 26392.479871749878,
+          "tried": 26392.479871749878
         },
         {
           "iter": 1,
-          "best": 26950.46118736267,
-          "tried": 26950.46118736267
+          "best": 26392.479871749878,
+          "tried": 28564.054178237915
         },
         {
           "iter": 2,
-          "best": 26950.46118736267,
-          "tried": 26950.46118736267
+          "best": 26392.479871749878,
+          "tried": 28564.054178237915
         },
         {
           "iter": 3,
-          "best": 26950.46118736267,
+          "best": 26392.479871749878,
           "tried": 26950.46118736267
         },
         {
           "iter": 4,
-          "best": 26950.46118736267,
-          "tried": 26950.46118736267
+          "best": 26392.479871749878,
+          "tried": 28558.259550094604
         },
         {
           "iter": 5,
-          "best": 26950.46118736267,
-          "tried": 26950.46118736267
+          "best": 26392.479871749878,
+          "tried": 28558.259550094604
         }
       ],
-      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
+      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = 3.0 * dist_matrix[current][j] + 1.0 * dist_matrix[j][0]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
     }
   },
   "kroE100.tsp": {
     "nearest_neighbor": {
       "length": 27587.187286376953,
-      "time": 0.0
+      "time": 0.0005540847778320312
     },
     "nn_multi_start": {
-      "length": 24907.021629333496,
-      "time": 0.0005328655242919922
+      "length": 25408.319175720215,
+      "time": 0.0
     },
     "funsearch": {
       "length": 27587.187286376953,
-      "time": 0.64,
+      "time": 825.13,
       "history": [
         {
           "iter": 0,
@@ -1625,27 +1625,27 @@
         {
           "iter": 1,
           "best": 27587.187286376953,
-          "tried": 27587.187286376953
+          "tried": 30309.5366897583
         },
         {
           "iter": 2,
           "best": 27587.187286376953,
-          "tried": 27587.187286376953
+          "tried": 31141.177879333496
         },
         {
           "iter": 3,
           "best": 27587.187286376953,
-          "tried": 27587.187286376953
+          "tried": 31141.177879333496
         },
         {
           "iter": 4,
           "best": 27587.187286376953,
-          "tried": 27587.187286376953
+          "tried": 30306.600051879883
         },
         {
           "iter": 5,
           "best": 27587.187286376953,
-          "tried": 27587.187286376953
+          "tried": 252791.94998168945
         }
       ],
       "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
@@ -1657,92 +1657,92 @@
       "time": 0.0
     },
     "nn_multi_start": {
-      "length": 16939.44150543213,
-      "time": 0.0005347728729248047
+      "length": 17319.038791656494,
+      "time": 0.0
     },
     "funsearch": {
-      "length": 20362.757488250732,
-      "time": 0.65,
+      "length": 17757.943420410156,
+      "time": 487.13,
       "history": [
         {
           "iter": 0,
-          "best": 20362.757488250732,
-          "tried": 20362.757488250732
+          "best": 18776.925910949707,
+          "tried": 18776.925910949707
         },
         {
           "iter": 1,
-          "best": 20362.757488250732,
-          "tried": 20362.757488250732
+          "best": 18776.925910949707,
+          "tried": 21493.18438720703
         },
         {
           "iter": 2,
-          "best": 20362.757488250732,
-          "tried": 20362.757488250732
+          "best": 18776.925910949707,
+          "tried": 21493.18438720703
         },
         {
           "iter": 3,
-          "best": 20362.757488250732,
-          "tried": 20362.757488250732
+          "best": 18776.925910949707,
+          "tried": 20250.148948669434
         },
         {
           "iter": 4,
-          "best": 20362.757488250732,
-          "tried": 20362.757488250732
+          "best": 18776.925910949707,
+          "tried": 21493.18438720703
         },
         {
           "iter": 5,
-          "best": 20362.757488250732,
-          "tried": 20362.757488250732
+          "best": 17757.943420410156,
+          "tried": 17757.943420410156
         }
       ],
-      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
+      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j] / dist_matrix[j][0]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
     }
   },
   "lin318.tsp": {
     "nearest_neighbor": {
       "length": 54033.576793670654,
-      "time": 0.0005373954772949219
+      "time": 0.0
     },
     "nn_multi_start": {
-      "length": 49730.48526382446,
-      "time": 0.0016412734985351562
+      "length": 49215.61265563965,
+      "time": 0.001100778579711914
     },
     "funsearch": {
-      "length": 54033.576793670654,
-      "time": 0.89,
+      "length": 53523.353942871094,
+      "time": 770.98,
       "history": [
         {
           "iter": 0,
-          "best": 54033.576793670654,
-          "tried": 54033.576793670654
+          "best": 53772.91596984863,
+          "tried": 53772.91596984863
         },
         {
           "iter": 1,
-          "best": 54033.576793670654,
-          "tried": 54033.576793670654
+          "best": 53772.91596984863,
+          "tried": 62714.60760498047
         },
         {
           "iter": 2,
-          "best": 54033.576793670654,
+          "best": 53772.91596984863,
           "tried": 54033.576793670654
         },
         {
           "iter": 3,
-          "best": 54033.576793670654,
-          "tried": 54033.576793670654
+          "best": 53523.353942871094,
+          "tried": 53523.353942871094
         },
         {
           "iter": 4,
-          "best": 54033.576793670654,
-          "tried": 54033.576793670654
+          "best": 53523.353942871094,
+          "tried": 62714.60760498047
         },
         {
           "iter": 5,
-          "best": 54033.576793670654,
-          "tried": 54033.576793670654
+          "best": 53523.353942871094,
+          "tried": 62714.60760498047
         }
       ],
-      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
+      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j] * dist_matrix[j][0]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
     }
   },
   "linhp318.tsp": {
@@ -1751,59 +1751,59 @@
       "time": 0.0
     },
     "nn_multi_start": {
-      "length": 51142.30150222778,
-      "time": 0.001592874526977539
+      "length": 49294.741775512695,
+      "time": 0.0019986629486083984
     },
     "funsearch": {
-      "length": 54033.576793670654,
-      "time": 0.88,
+      "length": 51566.54557800293,
+      "time": 401.48,
       "history": [
         {
           "iter": 0,
-          "best": 54033.576793670654,
-          "tried": 54033.576793670654
+          "best": 51566.54557800293,
+          "tried": 51566.54557800293
         },
         {
           "iter": 1,
-          "best": 54033.576793670654,
-          "tried": 54033.576793670654
+          "best": 51566.54557800293,
+          "tried": 62714.60760498047
         },
         {
           "iter": 2,
-          "best": 54033.576793670654,
-          "tried": 54033.576793670654
+          "best": 51566.54557800293,
+          "tried": 62714.60760498047
         },
         {
           "iter": 3,
-          "best": 54033.576793670654,
-          "tried": 54033.576793670654
+          "best": 51566.54557800293,
+          "tried": 62714.60760498047
         },
         {
           "iter": 4,
-          "best": 54033.576793670654,
+          "best": 51566.54557800293,
           "tried": 54033.576793670654
         },
         {
           "iter": 5,
-          "best": 54033.576793670654,
-          "tried": 54033.576793670654
+          "best": 51566.54557800293,
+          "tried": 62714.60760498047
         }
       ],
-      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
+      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = (dist_matrix[current][j] ** 0.5) / (dist_matrix[j][0] ** 0.5)\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
     }
   },
   "nrw1379.tsp": {
     "nearest_neighbor": {
       "length": 70015.4570748806,
-      "time": 0.0012395381927490234
+      "time": 0.002000570297241211
     },
     "nn_multi_start": {
-      "length": 68651.26788687706,
-      "time": 0.025447845458984375
+      "length": 68880.91457915306,
+      "time": 0.0270993709564209
     },
     "funsearch": {
       "length": 70015.4570748806,
-      "time": 2.71,
+      "time": 78.03,
       "history": [
         {
           "iter": 0,
@@ -1813,7 +1813,7 @@
         {
           "iter": 1,
           "best": 70015.4570748806,
-          "tried": 70015.4570748806
+          "tried": 74428.78566908836
         },
         {
           "iter": 2,
@@ -1827,15 +1827,15 @@
   "p654.tsp": {
     "nearest_neighbor": {
       "length": 43411.55924987793,
-      "time": 0.0010368824005126953
+      "time": 0.0009980201721191406
     },
     "nn_multi_start": {
-      "length": 43894.45581817627,
-      "time": 0.0035550594329833984
+      "length": 43039.64330673218,
+      "time": 0.003635883331298828
     },
     "funsearch": {
       "length": 43411.55924987793,
-      "time": 0.85,
+      "time": 125.61,
       "history": [
         {
           "iter": 0,
@@ -1845,12 +1845,12 @@
         {
           "iter": 1,
           "best": 43411.55924987793,
-          "tried": 43411.55924987793
+          "tried": 3253477.6667785645
         },
         {
           "iter": 2,
           "best": 43411.55924987793,
-          "tried": 43411.55924987793
+          "tried": 3253477.6667785645
         }
       ],
       "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
@@ -1860,15 +1860,15 @@
   "pcb1173.tsp": {
     "nearest_neighbor": {
       "length": 70277.9412523508,
-      "time": 0.0
+      "time": 0.0012218952178955078
     },
     "nn_multi_start": {
-      "length": 71162.40307867527,
-      "time": 0.013999223709106445
+      "length": 70736.92938101292,
+      "time": 0.01793837547302246
     },
     "funsearch": {
       "length": 70277.9412523508,
-      "time": 2.03,
+      "time": 84.35,
       "history": [
         {
           "iter": 0,
@@ -1878,12 +1878,12 @@
         {
           "iter": 1,
           "best": 70277.9412523508,
-          "tried": 70277.9412523508
+          "tried": 80086.19010603428
         },
         {
           "iter": 2,
           "best": 70277.9412523508,
-          "tried": 70277.9412523508
+          "tried": 80086.19010603428
         }
       ],
       "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
@@ -1892,7 +1892,7 @@
   "pcb3038.tsp": {
     "nearest_neighbor": {
       "length": 175572.75171113014,
-      "time": 0.00609135627746582
+      "time": 0.00598597526550293
     }
   },
   "pcb442.tsp": {
@@ -1901,77 +1901,77 @@
       "time": 0.0
     },
     "nn_multi_start": {
-      "length": 59951.06692504883,
-      "time": 0.003107786178588867
+      "length": 59047.834732055664,
+      "time": 0.0029752254486083984
     },
     "funsearch": {
-      "length": 61984.046966552734,
-      "time": 1.12,
+      "length": 59726.27815246582,
+      "time": 262.99,
       "history": [
         {
           "iter": 0,
-          "best": 61984.046966552734,
-          "tried": 61984.046966552734
+          "best": 59726.27815246582,
+          "tried": 59726.27815246582
         },
         {
           "iter": 1,
-          "best": 61984.046966552734,
-          "tried": 61984.046966552734
+          "best": 59726.27815246582,
+          "tried": 71237.49411010742
         },
         {
           "iter": 2,
-          "best": 61984.046966552734,
-          "tried": 61984.046966552734
+          "best": 59726.27815246582,
+          "tried": 71237.49411010742
         },
         {
           "iter": 3,
-          "best": 61984.046966552734,
-          "tried": 61984.046966552734
+          "best": 59726.27815246582,
+          "tried": 63783.952407836914
         },
         {
           "iter": 4,
-          "best": 61984.046966552734,
-          "tried": 61984.046966552734
+          "best": 59726.27815246582,
+          "tried": 1119898.9710159302
         },
         {
           "iter": 5,
-          "best": 61984.046966552734,
+          "best": 59726.27815246582,
           "tried": 61984.046966552734
         }
       ],
-      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
+      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j] + dist_matrix[j][0] / n\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
     }
   },
   "pla33810.tsp": {
     "nn_coords": {
       "length": 77327460.45415215,
-      "time": 0.6167764663696289
+      "time": 0.6176021099090576
     }
   },
   "pla7397.tsp": {
     "nn_coords": {
       "length": 28106533.27211445,
-      "time": 0.030370473861694336
+      "time": 0.03158926963806152
     }
   },
   "pla85900.tsp": {
     "nn_coords": {
       "length": 163504086.29276717,
-      "time": 4.04575777053833
+      "time": 3.999105453491211
     }
   },
   "pr1002.tsp": {
     "nearest_neighbor": {
       "length": 315596.58739471436,
-      "time": 0.0010006427764892578
+      "time": 0.0009963512420654297
     },
     "nn_multi_start": {
-      "length": 315331.89402008057,
-      "time": 0.01033329963684082
+      "length": 316658.94623565674,
+      "time": 0.010999917984008789
     },
     "funsearch": {
       "length": 315596.58739471436,
-      "time": 1.56,
+      "time": 120.18,
       "history": [
         {
           "iter": 0,
@@ -1998,12 +1998,12 @@
       "time": 0.0
     },
     "nn_multi_start": {
-      "length": 46763.42077636719,
-      "time": 0.0
+      "length": 46678.154235839844,
+      "time": 0.0009989738464355469
     },
     "funsearch": {
       "length": 46678.154235839844,
-      "time": 0.66,
+      "time": 628.3,
       "history": [
         {
           "iter": 0,
@@ -2013,27 +2013,27 @@
         {
           "iter": 1,
           "best": 46678.154235839844,
-          "tried": 46678.154235839844
+          "tried": 52675.83117675781
         },
         {
           "iter": 2,
           "best": 46678.154235839844,
-          "tried": 46678.154235839844
+          "tried": 52675.83117675781
         },
         {
           "iter": 3,
           "best": 46678.154235839844,
-          "tried": 46678.154235839844
+          "tried": 52675.83117675781
         },
         {
           "iter": 4,
           "best": 46678.154235839844,
-          "tried": 46678.154235839844
+          "tried": 52675.83117675781
         },
         {
           "iter": 5,
           "best": 46678.154235839844,
-          "tried": 46678.154235839844
+          "tried": 54761.1823425293
         }
       ],
       "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
@@ -2045,12 +2045,12 @@
       "time": 0.0
     },
     "nn_multi_start": {
-      "length": 67425.68243408203,
-      "time": 0.0005431175231933594
+      "length": 67304.130859375,
+      "time": 0.0009982585906982422
     },
     "funsearch": {
       "length": 69299.42553710938,
-      "time": 0.67,
+      "time": 488.37,
       "history": [
         {
           "iter": 0,
@@ -2060,27 +2060,27 @@
         {
           "iter": 1,
           "best": 69299.42553710938,
-          "tried": 69299.42553710938
+          "tried": 91287.54867553711
         },
         {
           "iter": 2,
           "best": 69299.42553710938,
-          "tried": 69299.42553710938
+          "tried": 91287.54867553711
         },
         {
           "iter": 3,
           "best": 69299.42553710938,
-          "tried": 69299.42553710938
+          "tried": 80937.76791381836
         },
         {
           "iter": 4,
           "best": 69299.42553710938,
-          "tried": 69299.42553710938
+          "tried": 97639.68438720703
         },
         {
           "iter": 5,
           "best": 69299.42553710938,
-          "tried": 69299.42553710938
+          "tried": 756398.8556213379
         }
       ],
       "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
@@ -2089,15 +2089,15 @@
   "pr136.tsp": {
     "nearest_neighbor": {
       "length": 120777.85961914062,
-      "time": 0.0005605220794677734
+      "time": 0.0
     },
     "nn_multi_start": {
-      "length": 114708.89361572266,
-      "time": 0.0
+      "length": 115487.5034790039,
+      "time": 0.0009987354278564453
     },
     "funsearch": {
       "length": 120777.85961914062,
-      "time": 0.67,
+      "time": 384.98,
       "history": [
         {
           "iter": 0,
@@ -2112,22 +2112,22 @@
         {
           "iter": 2,
           "best": 120777.85961914062,
-          "tried": 120777.85961914062
+          "tried": 130422.501953125
         },
         {
           "iter": 3,
           "best": 120777.85961914062,
-          "tried": 120777.85961914062
+          "tried": 1232200.7194824219
         },
         {
           "iter": 4,
           "best": 120777.85961914062,
-          "tried": 120777.85961914062
+          "tried": 123782.56994628906
         },
         {
           "iter": 5,
           "best": 120777.85961914062,
-          "tried": 120777.85961914062
+          "tried": 130422.501953125
         }
       ],
       "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
@@ -2139,12 +2139,12 @@
       "time": 0.0
     },
     "nn_multi_start": {
-      "length": 60963.264892578125,
-      "time": 0.0005388259887695312
+      "length": 61077.40119934082,
+      "time": 0.0009996891021728516
     },
     "funsearch": {
       "length": 61650.71960449219,
-      "time": 0.67,
+      "time": 414.94,
       "history": [
         {
           "iter": 0,
@@ -2154,27 +2154,27 @@
         {
           "iter": 1,
           "best": 61650.71960449219,
-          "tried": 61650.71960449219
+          "tried": 68957.54751586914
         },
         {
           "iter": 2,
           "best": 61650.71960449219,
-          "tried": 61650.71960449219
+          "tried": 68957.54751586914
         },
         {
           "iter": 3,
           "best": 61650.71960449219,
-          "tried": 61650.71960449219
+          "tried": 1177008.510131836
         },
         {
           "iter": 4,
           "best": 61650.71960449219,
-          "tried": 61650.71960449219
+          "tried": 73639.65148925781
         },
         {
           "iter": 5,
           "best": 61650.71960449219,
-          "tried": 61650.71960449219
+          "tried": 68957.54751586914
         }
       ],
       "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
@@ -2186,45 +2186,45 @@
       "time": 0.0
     },
     "nn_multi_start": {
-      "length": 80956.05514526367,
-      "time": 0.0005321502685546875
+      "length": 81557.2406616211,
+      "time": 0.0
     },
     "funsearch": {
-      "length": 85702.9533996582,
-      "time": 0.69,
+      "length": 82690.79749298096,
+      "time": 411.5,
       "history": [
         {
           "iter": 0,
-          "best": 85702.9533996582,
-          "tried": 85702.9533996582
+          "best": 82690.79749298096,
+          "tried": 82690.79749298096
         },
         {
           "iter": 1,
-          "best": 85702.9533996582,
-          "tried": 85702.9533996582
+          "best": 82690.79749298096,
+          "tried": 94860.68481445312
         },
         {
           "iter": 2,
-          "best": 85702.9533996582,
-          "tried": 85702.9533996582
+          "best": 82690.79749298096,
+          "tried": 94860.68481445312
         },
         {
           "iter": 3,
-          "best": 85702.9533996582,
-          "tried": 85702.9533996582
+          "best": 82690.79749298096,
+          "tried": 94860.68481445312
         },
         {
           "iter": 4,
-          "best": 85702.9533996582,
-          "tried": 85702.9533996582
+          "best": 82690.79749298096,
+          "tried": 94860.68481445312
         },
         {
           "iter": 5,
-          "best": 85702.9533996582,
-          "tried": 85702.9533996582
+          "best": 82690.79749298096,
+          "tried": 87826.44387817383
         }
       ],
-      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
+      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = 0.7 * dist_matrix[current][j] + 0.3 * dist_matrix[j][0]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
     }
   },
   "pr226.tsp": {
@@ -2233,51 +2233,51 @@
       "time": 0.0
     },
     "nn_multi_start": {
-      "length": 93640.859375,
-      "time": 0.0010075569152832031
+      "length": 94191.97857666016,
+      "time": 0.0019991397857666016
     },
     "funsearch": {
-      "length": 94685.45443725586,
-      "time": 0.76,
+      "length": 94166.32888793945,
+      "time": 420.23,
       "history": [
         {
           "iter": 0,
-          "best": 94685.45443725586,
-          "tried": 94685.45443725586
+          "best": 94166.32888793945,
+          "tried": 94166.32888793945
         },
         {
           "iter": 1,
-          "best": 94685.45443725586,
-          "tried": 94685.45443725586
+          "best": 94166.32888793945,
+          "tried": 108890.40701293945
         },
         {
           "iter": 2,
-          "best": 94685.45443725586,
-          "tried": 94685.45443725586
+          "best": 94166.32888793945,
+          "tried": 108890.40701293945
         },
         {
           "iter": 3,
-          "best": 94685.45443725586,
-          "tried": 94685.45443725586
+          "best": 94166.32888793945,
+          "tried": 108890.40701293945
         },
         {
           "iter": 4,
-          "best": 94685.45443725586,
-          "tried": 94685.45443725586
+          "best": 94166.32888793945,
+          "tried": 108890.40701293945
         },
         {
           "iter": 5,
-          "best": 94685.45443725586,
-          "tried": 94685.45443725586
+          "best": 94166.32888793945,
+          "tried": 2514868.2250976562
         }
       ],
-      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
+      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j] + dist_matrix[j][0] / n\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
     }
   },
   "pr2392.tsp": {
     "nearest_neighbor": {
       "length": 461207.48885917664,
-      "time": 0.0041027069091796875
+      "time": 0.004288434982299805
     }
   },
   "pr264.tsp": {
@@ -2286,12 +2286,12 @@
       "time": 0.0
     },
     "nn_multi_start": {
-      "length": 55531.095611572266,
-      "time": 0.00099945068359375
+      "length": 54604.70901489258,
+      "time": 0.0012607574462890625
     },
     "funsearch": {
       "length": 58022.856353759766,
-      "time": 0.8,
+      "time": 375.48,
       "history": [
         {
           "iter": 0,
@@ -2301,7 +2301,7 @@
         {
           "iter": 1,
           "best": 58022.856353759766,
-          "tried": 58022.856353759766
+          "tried": 65783.44923400879
         },
         {
           "iter": 2,
@@ -2311,7 +2311,7 @@
         {
           "iter": 3,
           "best": 58022.856353759766,
-          "tried": 58022.856353759766
+          "tried": 65783.44923400879
         },
         {
           "iter": 4,
@@ -2321,7 +2321,7 @@
         {
           "iter": 5,
           "best": 58022.856353759766,
-          "tried": 58022.856353759766
+          "tried": 63807.1842956543
         }
       ],
       "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
@@ -2333,12 +2333,12 @@
       "time": 0.0
     },
     "nn_multi_start": {
-      "length": 60091.366604566574,
-      "time": 0.0019991397857666016
+      "length": 59260.09679865837,
+      "time": 0.002001523971557617
     },
     "funsearch": {
-      "length": 59899.009556531906,
-      "time": 0.86,
+      "length": 59013.74416804314,
+      "time": 185.79,
       "history": [
         {
           "iter": 0,
@@ -2348,30 +2348,30 @@
         {
           "iter": 1,
           "best": 59899.009556531906,
-          "tried": 59899.009556531906
+          "tried": 1118766.0607910156
         },
         {
           "iter": 2,
           "best": 59899.009556531906,
-          "tried": 59899.009556531906
+          "tried": 66372.61427760124
         },
         {
           "iter": 3,
           "best": 59899.009556531906,
-          "tried": 59899.009556531906
+          "tried": 66372.61427760124
         },
         {
           "iter": 4,
-          "best": 59899.009556531906,
-          "tried": 59899.009556531906
+          "best": 59013.74416804314,
+          "tried": 59013.74416804314
         },
         {
           "iter": 5,
-          "best": 59899.009556531906,
-          "tried": 59899.009556531906
+          "best": 59013.74416804314,
+          "tried": 1118766.0607910156
         }
       ],
-      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
+      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j] / 1.5 + dist_matrix[j][0] ** 0.7\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
     }
   },
   "pr439.tsp": {
@@ -2380,12 +2380,12 @@
       "time": 0.0
     },
     "nn_multi_start": {
-      "length": 130429.09349822998,
-      "time": 0.003005504608154297
+      "length": 129267.95427703857,
+      "time": 0.0019979476928710938
     },
     "funsearch": {
       "length": 131282.09239196777,
-      "time": 1.12,
+      "time": 404.62,
       "history": [
         {
           "iter": 0,
@@ -2395,7 +2395,7 @@
         {
           "iter": 1,
           "best": 131282.09239196777,
-          "tried": 131282.09239196777
+          "tried": 153833.60551452637
         },
         {
           "iter": 2,
@@ -2405,17 +2405,17 @@
         {
           "iter": 3,
           "best": 131282.09239196777,
-          "tried": 131282.09239196777
+          "tried": 153833.60551452637
         },
         {
           "iter": 4,
           "best": 131282.09239196777,
-          "tried": 131282.09239196777
+          "tried": 153833.60551452637
         },
         {
           "iter": 5,
           "best": 131282.09239196777,
-          "tried": 131282.09239196777
+          "tried": 142144.57410430908
         }
       ],
       "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
@@ -2427,12 +2427,12 @@
       "time": 0.0
     },
     "nn_multi_start": {
-      "length": 130921.00402832031,
+      "length": 132173.6875,
       "time": 0.0
     },
     "funsearch": {
-      "length": 153461.92224121094,
-      "time": 0.63,
+      "length": 142519.92456054688,
+      "time": 353.19,
       "history": [
         {
           "iter": 0,
@@ -2442,30 +2442,30 @@
         {
           "iter": 1,
           "best": 153461.92224121094,
-          "tried": 153461.92224121094
+          "tried": 160043.17211914062
         },
         {
           "iter": 2,
           "best": 153461.92224121094,
-          "tried": 153461.92224121094
+          "tried": 160043.17211914062
         },
         {
           "iter": 3,
           "best": 153461.92224121094,
-          "tried": 153461.92224121094
+          "tried": 160043.17211914062
         },
         {
           "iter": 4,
-          "best": 153461.92224121094,
-          "tried": 153461.92224121094
+          "best": 142519.92456054688,
+          "tried": 142519.92456054688
         },
         {
           "iter": 5,
-          "best": 153461.92224121094,
-          "tried": 153461.92224121094
+          "best": 142519.92456054688,
+          "tried": 160043.17211914062
         }
       ],
-      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
+      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j] * dist_matrix[j][0]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
     }
   },
   "rat195.tsp": {
@@ -2474,45 +2474,45 @@
       "time": 0.0
     },
     "nn_multi_start": {
-      "length": 2639.4801893234253,
-      "time": 0.0010793209075927734
+      "length": 2660.1766023635864,
+      "time": 0.000997781753540039
     },
     "funsearch": {
-      "length": 2761.9573526382446,
-      "time": 0.74,
+      "length": 2681.5550861358643,
+      "time": 296.13,
       "history": [
         {
           "iter": 0,
-          "best": 2761.9573526382446,
-          "tried": 2761.9573526382446
+          "best": 2760.6755685806274,
+          "tried": 2760.6755685806274
         },
         {
           "iter": 1,
-          "best": 2761.9573526382446,
-          "tried": 2761.9573526382446
+          "best": 2760.6755685806274,
+          "tried": 2760.6755685806274
         },
         {
           "iter": 2,
-          "best": 2761.9573526382446,
-          "tried": 2761.9573526382446
+          "best": 2760.6755685806274,
+          "tried": 3129.5981764793396
         },
         {
           "iter": 3,
-          "best": 2761.9573526382446,
-          "tried": 2761.9573526382446
+          "best": 2681.5550861358643,
+          "tried": 2681.5550861358643
         },
         {
           "iter": 4,
-          "best": 2761.9573526382446,
-          "tried": 2761.9573526382446
+          "best": 2681.5550861358643,
+          "tried": 2760.6755685806274
         },
         {
           "iter": 5,
-          "best": 2761.9573526382446,
-          "tried": 2761.9573526382446
+          "best": 2681.5550861358643,
+          "tried": 2898.9644384384155
         }
       ],
-      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
+      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j] / (dist_matrix[j][0] + 1)\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
     }
   },
   "rat575.tsp": {
@@ -2521,30 +2521,30 @@
       "time": 0.0
     },
     "nn_multi_start": {
-      "length": 8018.307463884354,
-      "time": 0.004039764404296875
+      "length": 7973.040280580521,
+      "time": 0.003995418548583984
     },
     "funsearch": {
-      "length": 8449.318319559097,
-      "time": 0.73,
+      "length": 8335.386781930923,
+      "time": 379.07,
       "history": [
         {
           "iter": 0,
-          "best": 8449.318319559097,
-          "tried": 8449.318319559097
+          "best": 8335.386781930923,
+          "tried": 8335.386781930923
         },
         {
           "iter": 1,
-          "best": 8449.318319559097,
-          "tried": 8449.318319559097
+          "best": 8335.386781930923,
+          "tried": 9060.916636705399
         },
         {
           "iter": 2,
-          "best": 8449.318319559097,
-          "tried": 8449.318319559097
+          "best": 8335.386781930923,
+          "tried": 9060.916636705399
         }
       ],
-      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
+      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j] + 0.5 * dist_matrix[j][0]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
     }
   },
   "rat783.tsp": {
@@ -2553,30 +2553,30 @@
       "time": 0.0
     },
     "nn_multi_start": {
-      "length": 10815.273620009422,
-      "time": 0.009453058242797852
+      "length": 10844.860283255577,
+      "time": 0.010461807250976562
     },
     "funsearch": {
-      "length": 11255.070244669914,
-      "time": 1.09,
+      "length": 10840.750574231148,
+      "time": 61.78,
       "history": [
         {
           "iter": 0,
-          "best": 11255.070244669914,
-          "tried": 11255.070244669914
+          "best": 10840.750574231148,
+          "tried": 10840.750574231148
         },
         {
           "iter": 1,
-          "best": 11255.070244669914,
-          "tried": 11255.070244669914
+          "best": 10840.750574231148,
+          "tried": 11795.402155995369
         },
         {
           "iter": 2,
-          "best": 11255.070244669914,
-          "tried": 11255.070244669914
+          "best": 10840.750574231148,
+          "tried": 11795.402155995369
         }
       ],
-      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
+      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j] ** 0.5 + dist_matrix[j][0] ** 0.5\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
     }
   },
   "rat99.tsp": {
@@ -2589,41 +2589,41 @@
       "time": 0.0
     },
     "funsearch": {
-      "length": 1564.7248511314392,
-      "time": 0.64,
+      "length": 1433.4830784797668,
+      "time": 509.66,
       "history": [
         {
           "iter": 0,
-          "best": 1564.7248511314392,
-          "tried": 1564.7248511314392
+          "best": 1493.5692982673645,
+          "tried": 1493.5692982673645
         },
         {
           "iter": 1,
-          "best": 1564.7248511314392,
-          "tried": 1564.7248511314392
+          "best": 1433.4830784797668,
+          "tried": 1433.4830784797668
         },
         {
           "iter": 2,
-          "best": 1564.7248511314392,
-          "tried": 1564.7248511314392
+          "best": 1433.4830784797668,
+          "tried": 1681.2247185707092
         },
         {
           "iter": 3,
-          "best": 1564.7248511314392,
-          "tried": 1564.7248511314392
+          "best": 1433.4830784797668,
+          "tried": 1681.2247185707092
         },
         {
           "iter": 4,
-          "best": 1564.7248511314392,
-          "tried": 1564.7248511314392
+          "best": 1433.4830784797668,
+          "tried": 1582.9820771217346
         },
         {
           "iter": 5,
-          "best": 1564.7248511314392,
-          "tried": 1564.7248511314392
+          "best": 1433.4830784797668,
+          "tried": 9505.368124008179
         }
       ],
-      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
+      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = (dist_matrix[current][j] + dist_matrix[j][current]) / dist_matrix[j][0]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
     }
   },
   "rd100.tsp": {
@@ -2633,44 +2633,44 @@
     },
     "nn_multi_start": {
       "length": 9427.333170890808,
-      "time": 0.0005404949188232422
+      "time": 0.0
     },
     "funsearch": {
-      "length": 9941.164182662964,
-      "time": 0.65,
+      "length": 9310.940061569214,
+      "time": 436.52,
       "history": [
         {
           "iter": 0,
-          "best": 9941.164182662964,
-          "tried": 9941.164182662964
+          "best": 9310.940061569214,
+          "tried": 9310.940061569214
         },
         {
           "iter": 1,
-          "best": 9941.164182662964,
-          "tried": 9941.164182662964
+          "best": 9310.940061569214,
+          "tried": 11427.034715652466
         },
         {
           "iter": 2,
-          "best": 9941.164182662964,
-          "tried": 9941.164182662964
+          "best": 9310.940061569214,
+          "tried": 11427.034715652466
         },
         {
           "iter": 3,
-          "best": 9941.164182662964,
-          "tried": 9941.164182662964
+          "best": 9310.940061569214,
+          "tried": 11427.034715652466
         },
         {
           "iter": 4,
-          "best": 9941.164182662964,
-          "tried": 9941.164182662964
+          "best": 9310.940061569214,
+          "tried": 13960.08029460907
         },
         {
           "iter": 5,
-          "best": 9941.164182662964,
-          "tried": 9941.164182662964
+          "best": 9310.940061569214,
+          "tried": 10887.037382125854
         }
       ],
-      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
+      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j] + dist_matrix[j][0] / 2\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
     }
   },
   "rd400.tsp": {
@@ -2679,12 +2679,12 @@
       "time": 0.0
     },
     "nn_multi_start": {
-      "length": 18303.29960358143,
-      "time": 0.00208282470703125
+      "length": 18357.669896245003,
+      "time": 0.003011941909790039
     },
     "funsearch": {
       "length": 19168.05168068409,
-      "time": 1.05,
+      "time": 297.7,
       "history": [
         {
           "iter": 0,
@@ -2694,12 +2694,12 @@
         {
           "iter": 1,
           "best": 19168.05168068409,
-          "tried": 19168.05168068409
+          "tried": 19473.977989315987
         },
         {
           "iter": 2,
           "best": 19168.05168068409,
-          "tried": 19168.05168068409
+          "tried": 19674.80998146534
         },
         {
           "iter": 3,
@@ -2709,12 +2709,12 @@
         {
           "iter": 4,
           "best": 19168.05168068409,
-          "tried": 19168.05168068409
+          "tried": 19236.64079964161
         },
         {
           "iter": 5,
           "best": 19168.05168068409,
-          "tried": 19168.05168068409
+          "tried": 20735.291282773018
         }
       ],
       "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
@@ -2723,85 +2723,85 @@
   "rl11849.tsp": {
     "nn_coords": {
       "length": 1139495.913633199,
-      "time": 0.08484387397766113
+      "time": 0.0871114730834961
     }
   },
   "rl1304.tsp": {
     "nearest_neighbor": {
       "length": 339797.4722518921,
-      "time": 0.001998424530029297
+      "time": 0.0010008811950683594
     },
     "nn_multi_start": {
-      "length": 305014.97048187256,
-      "time": 0.01706981658935547
+      "length": 311830.3356704712,
+      "time": 0.01828289031982422
     },
     "funsearch": {
-      "length": 339797.4722518921,
-      "time": 2.47,
+      "length": 332006.8278198242,
+      "time": 87.71,
       "history": [
         {
           "iter": 0,
-          "best": 339797.4722518921,
-          "tried": 339797.4722518921
+          "best": 332006.8278198242,
+          "tried": 332006.8278198242
         },
         {
           "iter": 1,
-          "best": 339797.4722518921,
-          "tried": 339797.4722518921
+          "best": 332006.8278198242,
+          "tried": 371968.13665008545
         },
         {
           "iter": 2,
-          "best": 339797.4722518921,
-          "tried": 339797.4722518921
+          "best": 332006.8278198242,
+          "tried": 371968.13665008545
         }
       ],
-      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
+      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j] + dist_matrix[j][0] / 2\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
     }
   },
   "rl1323.tsp": {
     "nearest_neighbor": {
       "length": 332094.9693374634,
-      "time": 0.001039743423461914
+      "time": 0.0009989738464355469
     },
     "nn_multi_start": {
-      "length": 329557.3148422241,
-      "time": 0.01717233657836914
+      "length": 317265.1788406372,
+      "time": 0.019522905349731445
     },
     "funsearch": {
-      "length": 332094.9693374634,
-      "time": 2.55,
+      "length": 330903.20069122314,
+      "time": 90.14,
       "history": [
         {
           "iter": 0,
-          "best": 332094.9693374634,
-          "tried": 332094.9693374634
+          "best": 330903.20069122314,
+          "tried": 330903.20069122314
         },
         {
           "iter": 1,
-          "best": 332094.9693374634,
-          "tried": 332094.9693374634
+          "best": 330903.20069122314,
+          "tried": 387527.31018066406
         },
         {
           "iter": 2,
-          "best": 332094.9693374634,
-          "tried": 332094.9693374634
+          "best": 330903.20069122314,
+          "tried": 387527.31018066406
         }
       ],
-      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
+      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j] + dist_matrix[j][0] / n\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
     }
   },
   "rl1889.tsp": {
     "nearest_neighbor": {
       "length": 400684.6376876831,
-      "time": 0.002210855484008789
+      "time": 0.0019936561584472656
     },
     "nn_multi_start": {
-      "length": 382013.6494369507,
-      "time": 0.04097604751586914
+      "length": 384474.36362457275,
+      "time": 0.04192805290222168
     },
     "funsearch": {
       "length": 400684.6376876831,
-      "time": 4.86,
+      "time": 299.52,
       "history": [
         {
           "iter": 0,
@@ -2811,12 +2811,12 @@
         {
           "iter": 1,
           "best": 400684.6376876831,
-          "tried": 400684.6376876831
+          "tried": 455425.59840011597
         },
         {
           "iter": 2,
           "best": 400684.6376876831,
-          "tried": 400684.6376876831
+          "tried": 455425.59840011597
         }
       ],
       "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
@@ -2825,13 +2825,13 @@
   "rl5915.tsp": {
     "nn_coords": {
       "length": 707498.6306154841,
-      "time": 0.01974773406982422
+      "time": 0.021008968353271484
     }
   },
   "rl5934.tsp": {
     "nn_coords": {
       "length": 683805.997793715,
-      "time": 0.01982712745666504
+      "time": 0.023195743560791016
     }
   },
   "si1032.tsp": {},
@@ -2843,12 +2843,12 @@
       "time": 0.0
     },
     "nn_multi_start": {
-      "length": 761.6890857219696,
+      "length": 780.61851811409,
       "time": 0.0
     },
     "funsearch": {
       "length": 805.5311992168427,
-      "time": 0.63,
+      "time": 975.07,
       "history": [
         {
           "iter": 0,
@@ -2858,27 +2858,27 @@
         {
           "iter": 1,
           "best": 805.5311992168427,
-          "tried": 805.5311992168427
+          "tried": 1071.354698419571
         },
         {
           "iter": 2,
           "best": 805.5311992168427,
-          "tried": 805.5311992168427
+          "tried": 1071.354698419571
         },
         {
           "iter": 3,
           "best": 805.5311992168427,
-          "tried": 805.5311992168427
+          "tried": 948.7538220882416
         },
         {
           "iter": 4,
           "best": 805.5311992168427,
-          "tried": 805.5311992168427
+          "tried": 1071.354698419571
         },
         {
           "iter": 5,
           "best": 805.5311992168427,
-          "tried": 805.5311992168427
+          "tried": 1071.354698419571
         }
       ],
       "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
@@ -2892,44 +2892,44 @@
     },
     "nn_multi_start": {
       "length": 140796.9091796875,
-      "time": 0.001049041748046875
+      "time": 0.0010030269622802734
     },
     "funsearch": {
-      "length": 152493.5506591797,
-      "time": 0.77,
+      "length": 145470.3514404297,
+      "time": 428.29,
       "history": [
         {
           "iter": 0,
-          "best": 152493.5506591797,
-          "tried": 152493.5506591797
+          "best": 146411.82971191406,
+          "tried": 146411.82971191406
         },
         {
           "iter": 1,
-          "best": 152493.5506591797,
-          "tried": 152493.5506591797
+          "best": 146411.82971191406,
+          "tried": 155751.52734375
         },
         {
           "iter": 2,
-          "best": 152493.5506591797,
-          "tried": 152493.5506591797
+          "best": 146411.82971191406,
+          "tried": 170653.5145263672
         },
         {
           "iter": 3,
-          "best": 152493.5506591797,
-          "tried": 152493.5506591797
+          "best": 146411.82971191406,
+          "tried": 170653.5145263672
         },
         {
           "iter": 4,
-          "best": 152493.5506591797,
-          "tried": 152493.5506591797
+          "best": 145470.3514404297,
+          "tried": 145470.3514404297
         },
         {
           "iter": 5,
-          "best": 152493.5506591797,
-          "tried": 152493.5506591797
+          "best": 145470.3514404297,
+          "tried": 170653.5145263672
         }
       ],
-      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
+      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j] ** 1.2 + dist_matrix[j][0] / 3.0\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
     }
   },
   "tsp225.tsp": {
@@ -2938,12 +2938,12 @@
       "time": 0.0
     },
     "nn_multi_start": {
-      "length": 4717.402416229248,
-      "time": 0.0010027885437011719
+      "length": 4713.11980342865,
+      "time": 0.002057313919067383
     },
     "funsearch": {
       "length": 4828.996706008911,
-      "time": 0.77,
+      "time": 477.83,
       "history": [
         {
           "iter": 0,
@@ -2953,27 +2953,27 @@
         {
           "iter": 1,
           "best": 4828.996706008911,
-          "tried": 4828.996706008911
+          "tried": 5370.387532234192
         },
         {
           "iter": 2,
           "best": 4828.996706008911,
-          "tried": 4828.996706008911
+          "tried": 5370.387532234192
         },
         {
           "iter": 3,
           "best": 4828.996706008911,
-          "tried": 4828.996706008911
+          "tried": 5201.97146987915
         },
         {
           "iter": 4,
           "best": 4828.996706008911,
-          "tried": 4828.996706008911
+          "tried": 5370.387532234192
         },
         {
           "iter": 5,
           "best": 4828.996706008911,
-          "tried": 4828.996706008911
+          "tried": 5014.909896850586
         }
       ],
       "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
@@ -2982,65 +2982,65 @@
   "u1060.tsp": {
     "nearest_neighbor": {
       "length": 296543.8899078369,
-      "time": 0.0010912418365478516
+      "time": 0.0010006427764892578
     },
     "nn_multi_start": {
-      "length": 284805.58476257324,
-      "time": 0.010834693908691406
+      "length": 282525.2207336426,
+      "time": 0.013997793197631836
     },
     "funsearch": {
-      "length": 296543.8899078369,
-      "time": 1.73,
+      "length": 289666.370552063,
+      "time": 97.97,
       "history": [
         {
           "iter": 0,
-          "best": 296543.8899078369,
-          "tried": 296543.8899078369
+          "best": 289666.370552063,
+          "tried": 289666.370552063
         },
         {
           "iter": 1,
-          "best": 296543.8899078369,
-          "tried": 296543.8899078369
+          "best": 289666.370552063,
+          "tried": 307275.93006134033
         },
         {
           "iter": 2,
-          "best": 296543.8899078369,
-          "tried": 296543.8899078369
+          "best": 289666.370552063,
+          "tried": 307275.93006134033
         }
       ],
-      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
+      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j] + dist_matrix[j][0] / n\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
     }
   },
   "u1432.tsp": {
     "nearest_neighbor": {
       "length": 188815.01000976562,
-      "time": 0.0010008811950683594
+      "time": 0.002001047134399414
     },
     "nn_multi_start": {
-      "length": 188321.87489318848,
-      "time": 0.022116661071777344
+      "length": 188387.1732788086,
+      "time": 0.022055625915527344
     },
     "funsearch": {
-      "length": 188815.01000976562,
-      "time": 2.89,
+      "length": 185267.13414001465,
+      "time": 136.09,
       "history": [
         {
           "iter": 0,
-          "best": 188815.01000976562,
-          "tried": 188815.01000976562
+          "best": 185267.13414001465,
+          "tried": 185267.13414001465
         },
         {
           "iter": 1,
-          "best": 188815.01000976562,
-          "tried": 188815.01000976562
+          "best": 185267.13414001465,
+          "tried": 207215.52655029297
         },
         {
           "iter": 2,
-          "best": 188815.01000976562,
-          "tried": 188815.01000976562
+          "best": 185267.13414001465,
+          "tried": 207215.52655029297
         }
       ],
-      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
+      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j] ** 0.5 + dist_matrix[j][0] ** 0.5\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
     }
   },
   "u159.tsp": {
@@ -3049,103 +3049,103 @@
       "time": 0.0
     },
     "nn_multi_start": {
-      "length": 48586.72543334961,
-      "time": 0.0009987354278564453
+      "length": 51047.723236083984,
+      "time": 0.0
     },
     "funsearch": {
-      "length": 54669.02658081055,
-      "time": 0.69,
+      "length": 52205.462478637695,
+      "time": 743.08,
       "history": [
         {
           "iter": 0,
-          "best": 54669.02658081055,
-          "tried": 54669.02658081055
+          "best": 52205.462478637695,
+          "tried": 52205.462478637695
         },
         {
           "iter": 1,
-          "best": 54669.02658081055,
-          "tried": 54669.02658081055
+          "best": 52205.462478637695,
+          "tried": 63516.283279418945
         },
         {
           "iter": 2,
-          "best": 54669.02658081055,
+          "best": 52205.462478637695,
           "tried": 54669.02658081055
         },
         {
           "iter": 3,
-          "best": 54669.02658081055,
-          "tried": 54669.02658081055
+          "best": 52205.462478637695,
+          "tried": 56319.49368286133
         },
         {
           "iter": 4,
-          "best": 54669.02658081055,
-          "tried": 54669.02658081055
+          "best": 52205.462478637695,
+          "tried": 76357.85623168945
         },
         {
           "iter": 5,
-          "best": 54669.02658081055,
-          "tried": 54669.02658081055
+          "best": 52205.462478637695,
+          "tried": 76357.85623168945
         }
       ],
-      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
+      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = 0.7 * dist_matrix[current][j] + 0.2 * dist_matrix[j][current] + 0.1 * dist_matrix[j][0]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
     }
   },
   "u1817.tsp": {
     "nearest_neighbor": {
       "length": 71691.2353553772,
-      "time": 0.0020003318786621094
+      "time": 0.0019919872283935547
     },
     "nn_multi_start": {
-      "length": 69033.0708694458,
-      "time": 0.036240577697753906
+      "length": 68521.48168182373,
+      "time": 0.03753328323364258
     },
     "funsearch": {
-      "length": 71691.2353553772,
-      "time": 4.42,
+      "length": 69292.2536201477,
+      "time": 121.25,
       "history": [
         {
           "iter": 0,
-          "best": 71691.2353553772,
-          "tried": 71691.2353553772
+          "best": 69292.2536201477,
+          "tried": 69292.2536201477
         },
         {
           "iter": 1,
-          "best": 71691.2353553772,
-          "tried": 71691.2353553772
+          "best": 69292.2536201477,
+          "tried": 79303.02180480957
         },
         {
           "iter": 2,
-          "best": 71691.2353553772,
-          "tried": 71691.2353553772
+          "best": 69292.2536201477,
+          "tried": 79303.02180480957
         }
       ],
-      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
+      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j] + dist_matrix[j][0] / n\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
     }
   },
   "u2152.tsp": {
     "nearest_neighbor": {
       "length": 77042.48197174072,
-      "time": 0.002090930938720703
+      "time": 0.0034530162811279297
     }
   },
   "u2319.tsp": {
     "nearest_neighbor": {
       "length": 278783.3070526123,
-      "time": 0.0035276412963867188
+      "time": 0.004998683929443359
     }
   },
   "u574.tsp": {
     "nearest_neighbor": {
       "length": 46881.86608791351,
-      "time": 0.0
+      "time": 0.0010623931884765625
     },
     "nn_multi_start": {
-      "length": 46117.475558280945,
-      "time": 0.0037119388580322266
+      "length": 45491.665709495544,
+      "time": 0.004007101058959961
     },
     "funsearch": {
       "length": 46881.86608791351,
-      "time": 0.73,
+      "time": 199.7,
       "history": [
         {
           "iter": 0,
@@ -3155,12 +3155,12 @@
         {
           "iter": 1,
           "best": 46881.86608791351,
-          "tried": 46881.86608791351
+          "tried": 50400.36325740814
         },
         {
           "iter": 2,
           "best": 46881.86608791351,
-          "tried": 46881.86608791351
+          "tried": 50400.36325740814
         }
       ],
       "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
@@ -3172,12 +3172,12 @@
       "time": 0.0
     },
     "nn_multi_start": {
-      "length": 50937.82980918884,
-      "time": 0.005998373031616211
+      "length": 51059.8329706192,
+      "time": 0.006345272064208984
     },
     "funsearch": {
       "length": 52994.58303928375,
-      "time": 1.02,
+      "time": 129.76,
       "history": [
         {
           "iter": 0,
@@ -3187,12 +3187,12 @@
         {
           "iter": 1,
           "best": 52994.58303928375,
-          "tried": 52994.58303928375
+          "tried": 56552.71440792084
         },
         {
           "iter": 2,
           "best": 52994.58303928375,
-          "tried": 52994.58303928375
+          "tried": 56552.71440792084
         }
       ],
       "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
@@ -3208,41 +3208,41 @@
       "time": 0.0
     },
     "funsearch": {
-      "length": 104.73494437336922,
-      "time": 0.64,
+      "length": 88.71514084935188,
+      "time": 1022.91,
       "history": [
         {
           "iter": 0,
-          "best": 104.73494437336922,
-          "tried": 104.73494437336922
+          "best": 88.71514084935188,
+          "tried": 88.71514084935188
         },
         {
           "iter": 1,
-          "best": 104.73494437336922,
-          "tried": 104.73494437336922
+          "best": 88.71514084935188,
+          "tried": 89.69363835453987
         },
         {
           "iter": 2,
-          "best": 104.73494437336922,
-          "tried": 104.73494437336922
+          "best": 88.71514084935188,
+          "tried": 89.69363835453987
         },
         {
           "iter": 3,
-          "best": 104.73494437336922,
-          "tried": 104.73494437336922
+          "best": 88.71514084935188,
+          "tried": 89.69363835453987
         },
         {
           "iter": 4,
-          "best": 104.73494437336922,
-          "tried": 104.73494437336922
+          "best": 88.71514084935188,
+          "tried": 88.71514084935188
         },
         {
           "iter": 5,
-          "best": 104.73494437336922,
-          "tried": 104.73494437336922
+          "best": 88.71514084935188,
+          "tried": 89.69363835453987
         }
       ],
-      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
+      "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = 0.7 * dist_matrix[current][j] + 0.3 * dist_matrix[j][0]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
     }
   },
   "ulysses22.tsp": {
@@ -3256,7 +3256,7 @@
     },
     "funsearch": {
       "length": 89.6407945677638,
-      "time": 0.63,
+      "time": 209.6,
       "history": [
         {
           "iter": 0,
@@ -3266,12 +3266,12 @@
         {
           "iter": 1,
           "best": 89.6407945677638,
-          "tried": 89.6407945677638
+          "tried": 92.59850429743528
         },
         {
           "iter": 2,
           "best": 89.6407945677638,
-          "tried": 89.6407945677638
+          "tried": 92.59850429743528
         },
         {
           "iter": 3,
@@ -3286,7 +3286,7 @@
         {
           "iter": 5,
           "best": 89.6407945677638,
-          "tried": 89.6407945677638
+          "tried": 237.06545028090477
         }
       ],
       "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
@@ -3295,7 +3295,7 @@
   "usa13509.tsp": {
     "nn_coords": {
       "length": 25047668.34110724,
-      "time": 0.12524724006652832
+      "time": 0.12075662612915039
     }
   },
   "vm1084.tsp": {
@@ -3304,12 +3304,12 @@
       "time": 0.0
     },
     "nn_multi_start": {
-      "length": 295330.0590133667,
-      "time": 0.012486457824707031
+      "length": 297897.8687515259,
+      "time": 0.014699935913085938
     },
     "funsearch": {
       "length": 301469.22747039795,
-      "time": 1.82,
+      "time": 98.62,
       "history": [
         {
           "iter": 0,
@@ -3319,12 +3319,12 @@
         {
           "iter": 1,
           "best": 301469.22747039795,
-          "tried": 301469.22747039795
+          "tried": 12609360.770263672
         },
         {
           "iter": 2,
           "best": 301469.22747039795,
-          "tried": 301469.22747039795
+          "tried": null
         }
       ],
       "code": "def heuristic(dist_matrix):\n    import numpy as np\n    n = len(dist_matrix)\n    visited = [False] * n\n    route = [0]\n    visited[0] = True\n    current = 0\n    for _ in range(n - 1):\n        scores = []\n        for j in range(n):\n            if not visited[j]:\n                score = dist_matrix[current][j]\n            else:\n                score = np.inf\n            scores.append(score)\n        next_city = int(np.argmin(scores))\n        route.append(next_city)\n        visited[next_city] = True\n        current = next_city\n    return route\n"
@@ -3333,15 +3333,15 @@
   "vm1748.tsp": {
     "nearest_neighbor": {
       "length": 408089.19424819946,
-      "time": 0.0019991397857666016
+      "time": 0.0022568702697753906
     },
     "nn_multi_start": {
-      "length": 406401.44916152954,
-      "time": 0.03492140769958496
+      "length": 411650.7905921936,
+      "time": 0.03799939155578613
     },
     "funsearch": {
       "length": 408089.19424819946,
-      "time": 4.2,
+      "time": 85.75,
       "history": [
         {
           "iter": 0,
@@ -3351,7 +3351,7 @@
         {
           "iter": 1,
           "best": 408089.19424819946,
-          "tried": 408089.19424819946
+          "tried": 485096.8790245056
         },
         {
           "iter": 2,

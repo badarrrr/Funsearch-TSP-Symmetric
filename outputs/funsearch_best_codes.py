@@ -26,7 +26,7 @@ def heuristic(dist_matrix):
 
 
 # ──────────────────────────────────────────────────────
-# ali535.tsp  length=2671.07
+# ali535.tsp  length=2568.08
 # ──────────────────────────────────────────────────────
 def heuristic(dist_matrix):
     import numpy as np
@@ -39,7 +39,7 @@ def heuristic(dist_matrix):
         scores = []
         for j in range(n):
             if not visited[j]:
-                score = dist_matrix[current][j]
+                score = dist_matrix[current][j] + dist_matrix[j][0] / 2
             else:
                 score = np.inf
             scores.append(score)
@@ -76,7 +76,7 @@ def heuristic(dist_matrix):
 
 
 # ──────────────────────────────────────────────────────
-# att532.tsp  length=112099.45
+# att532.tsp  length=108593.49
 # ──────────────────────────────────────────────────────
 def heuristic(dist_matrix):
     import numpy as np
@@ -89,7 +89,7 @@ def heuristic(dist_matrix):
         scores = []
         for j in range(n):
             if not visited[j]:
-                score = dist_matrix[current][j]
+                score = dist_matrix[current][j] + 0.5 * dist_matrix[j][0]
             else:
                 score = np.inf
             scores.append(score)
@@ -176,7 +176,7 @@ def heuristic(dist_matrix):
 
 
 # ──────────────────────────────────────────────────────
-# ch130.tsp  length=7575.29
+# ch130.tsp  length=7338.32
 # ──────────────────────────────────────────────────────
 def heuristic(dist_matrix):
     import numpy as np
@@ -189,7 +189,7 @@ def heuristic(dist_matrix):
         scores = []
         for j in range(n):
             if not visited[j]:
-                score = dist_matrix[current][j]
+                score = dist_matrix[current][j] + dist_matrix[j][0] * 0.5
             else:
                 score = np.inf
             scores.append(score)
@@ -201,7 +201,7 @@ def heuristic(dist_matrix):
 
 
 # ──────────────────────────────────────────────────────
-# ch150.tsp  length=8194.61
+# ch150.tsp  length=7988.13
 # ──────────────────────────────────────────────────────
 def heuristic(dist_matrix):
     import numpy as np
@@ -214,7 +214,7 @@ def heuristic(dist_matrix):
         scores = []
         for j in range(n):
             if not visited[j]:
-                score = dist_matrix[current][j]
+                score = dist_matrix[current][j] + dist_matrix[j][0] / 10
             else:
                 score = np.inf
             scores.append(score)
@@ -276,7 +276,7 @@ def heuristic(dist_matrix):
 
 
 # ──────────────────────────────────────────────────────
-# d198.tsp  length=18655.49
+# d198.tsp  length=18374.01
 # ──────────────────────────────────────────────────────
 def heuristic(dist_matrix):
     import numpy as np
@@ -289,7 +289,7 @@ def heuristic(dist_matrix):
         scores = []
         for j in range(n):
             if not visited[j]:
-                score = dist_matrix[current][j]
+                score = dist_matrix[current][j] + 0.5 * dist_matrix[j][0]
             else:
                 score = np.inf
             scores.append(score)
@@ -301,7 +301,7 @@ def heuristic(dist_matrix):
 
 
 # ──────────────────────────────────────────────────────
-# d493.tsp  length=43646.37
+# d493.tsp  length=42802.15
 # ──────────────────────────────────────────────────────
 def heuristic(dist_matrix):
     import numpy as np
@@ -314,7 +314,7 @@ def heuristic(dist_matrix):
         scores = []
         for j in range(n):
             if not visited[j]:
-                score = dist_matrix[current][j]
+                score = 0.7 * dist_matrix[current][j] + 0.3 * dist_matrix[j][0]
             else:
                 score = np.inf
             scores.append(score)
@@ -326,7 +326,7 @@ def heuristic(dist_matrix):
 
 
 # ──────────────────────────────────────────────────────
-# d657.tsp  length=61874.12
+# d657.tsp  length=61214.40
 # ──────────────────────────────────────────────────────
 def heuristic(dist_matrix):
     import numpy as np
@@ -339,7 +339,7 @@ def heuristic(dist_matrix):
         scores = []
         for j in range(n):
             if not visited[j]:
-                score = dist_matrix[current][j]
+                score = dist_matrix[current][j] + 0.5 * dist_matrix[j][0]
             else:
                 score = np.inf
             scores.append(score)
@@ -426,7 +426,7 @@ def heuristic(dist_matrix):
 
 
 # ──────────────────────────────────────────────────────
-# eil76.tsp  length=711.99
+# eil76.tsp  length=662.44
 # ──────────────────────────────────────────────────────
 def heuristic(dist_matrix):
     import numpy as np
@@ -439,7 +439,7 @@ def heuristic(dist_matrix):
         scores = []
         for j in range(n):
             if not visited[j]:
-                score = dist_matrix[current][j]
+                score = dist_matrix[current][j] + dist_matrix[j][current] + dist_matrix[j][0]
             else:
                 score = np.inf
             scores.append(score)
@@ -476,7 +476,7 @@ def heuristic(dist_matrix):
 
 
 # ──────────────────────────────────────────────────────
-# fl1577.tsp  length=29186.23
+# fl1577.tsp  length=27152.72
 # ──────────────────────────────────────────────────────
 def heuristic(dist_matrix):
     import numpy as np
@@ -489,7 +489,7 @@ def heuristic(dist_matrix):
         scores = []
         for j in range(n):
             if not visited[j]:
-                score = dist_matrix[current][j]
+                score = dist_matrix[current][j] + 0.5 * dist_matrix[j][0]
             else:
                 score = np.inf
             scores.append(score)
@@ -501,7 +501,7 @@ def heuristic(dist_matrix):
 
 
 # ──────────────────────────────────────────────────────
-# fl417.tsp  length=15737.09
+# fl417.tsp  length=15073.82
 # ──────────────────────────────────────────────────────
 def heuristic(dist_matrix):
     import numpy as np
@@ -514,7 +514,7 @@ def heuristic(dist_matrix):
         scores = []
         for j in range(n):
             if not visited[j]:
-                score = dist_matrix[current][j]
+                score = dist_matrix[current][j] + dist_matrix[j][current] + dist_matrix[j][0]
             else:
                 score = np.inf
             scores.append(score)
@@ -526,7 +526,7 @@ def heuristic(dist_matrix):
 
 
 # ──────────────────────────────────────────────────────
-# gil262.tsp  length=3241.47
+# gil262.tsp  length=3064.73
 # ──────────────────────────────────────────────────────
 def heuristic(dist_matrix):
     import numpy as np
@@ -539,7 +539,7 @@ def heuristic(dist_matrix):
         scores = []
         for j in range(n):
             if not visited[j]:
-                score = dist_matrix[current][j]
+                score = dist_matrix[current][j] + 0.5 * dist_matrix[j][0]
             else:
                 score = np.inf
             scores.append(score)
@@ -551,7 +551,7 @@ def heuristic(dist_matrix):
 
 
 # ──────────────────────────────────────────────────────
-# gr137.tsp  length=1022.22
+# gr137.tsp  length=937.12
 # ──────────────────────────────────────────────────────
 def heuristic(dist_matrix):
     import numpy as np
@@ -564,7 +564,7 @@ def heuristic(dist_matrix):
         scores = []
         for j in range(n):
             if not visited[j]:
-                score = dist_matrix[current][j]
+                score = (dist_matrix[current][j] + dist_matrix[j][0]) ** 0.5
             else:
                 score = np.inf
             scores.append(score)
@@ -576,7 +576,7 @@ def heuristic(dist_matrix):
 
 
 # ──────────────────────────────────────────────────────
-# gr202.tsp  length=619.40
+# gr202.tsp  length=568.42
 # ──────────────────────────────────────────────────────
 def heuristic(dist_matrix):
     import numpy as np
@@ -589,7 +589,7 @@ def heuristic(dist_matrix):
         scores = []
         for j in range(n):
             if not visited[j]:
-                score = dist_matrix[current][j]
+                score = dist_matrix[current][j] ** 1.3 + 0.4 * dist_matrix[j][0] - 0.2 * dist_matrix[j][current]
             else:
                 score = np.inf
             scores.append(score)
@@ -626,7 +626,7 @@ def heuristic(dist_matrix):
 
 
 # ──────────────────────────────────────────────────────
-# gr431.tsp  length=2516.25
+# gr431.tsp  length=2420.55
 # ──────────────────────────────────────────────────────
 def heuristic(dist_matrix):
     import numpy as np
@@ -639,7 +639,7 @@ def heuristic(dist_matrix):
         scores = []
         for j in range(n):
             if not visited[j]:
-                score = dist_matrix[current][j]
+                score = dist_matrix[current][j] + dist_matrix[j][0] * 0.5
             else:
                 score = np.inf
             scores.append(score)
@@ -651,7 +651,7 @@ def heuristic(dist_matrix):
 
 
 # ──────────────────────────────────────────────────────
-# gr666.tsp  length=4110.90
+# gr666.tsp  length=3886.13
 # ──────────────────────────────────────────────────────
 def heuristic(dist_matrix):
     import numpy as np
@@ -664,7 +664,7 @@ def heuristic(dist_matrix):
         scores = []
         for j in range(n):
             if not visited[j]:
-                score = dist_matrix[current][j]
+                score = dist_matrix[current][j] ** 0.7 / (dist_matrix[j][0] + 1)
             else:
                 score = np.inf
             scores.append(score)
@@ -676,7 +676,7 @@ def heuristic(dist_matrix):
 
 
 # ──────────────────────────────────────────────────────
-# gr96.tsp  length=707.09
+# gr96.tsp  length=635.68
 # ──────────────────────────────────────────────────────
 def heuristic(dist_matrix):
     import numpy as np
@@ -689,7 +689,7 @@ def heuristic(dist_matrix):
         scores = []
         for j in range(n):
             if not visited[j]:
-                score = dist_matrix[current][j]
+                score = dist_matrix[current][j] + 0.5 * dist_matrix[j][0]
             else:
                 score = np.inf
             scores.append(score)
@@ -776,7 +776,7 @@ def heuristic(dist_matrix):
 
 
 # ──────────────────────────────────────────────────────
-# kroB100.tsp  length=29155.04
+# kroB100.tsp  length=28588.73
 # ──────────────────────────────────────────────────────
 def heuristic(dist_matrix):
     import numpy as np
@@ -789,7 +789,7 @@ def heuristic(dist_matrix):
         scores = []
         for j in range(n):
             if not visited[j]:
-                score = dist_matrix[current][j]
+                score = dist_matrix[current][j] + dist_matrix[j][current] + dist_matrix[j][0]
             else:
                 score = np.inf
             scores.append(score)
@@ -876,7 +876,7 @@ def heuristic(dist_matrix):
 
 
 # ──────────────────────────────────────────────────────
-# kroD100.tsp  length=26950.46
+# kroD100.tsp  length=26392.48
 # ──────────────────────────────────────────────────────
 def heuristic(dist_matrix):
     import numpy as np
@@ -889,7 +889,7 @@ def heuristic(dist_matrix):
         scores = []
         for j in range(n):
             if not visited[j]:
-                score = dist_matrix[current][j]
+                score = 3.0 * dist_matrix[current][j] + 1.0 * dist_matrix[j][0]
             else:
                 score = np.inf
             scores.append(score)
@@ -926,7 +926,7 @@ def heuristic(dist_matrix):
 
 
 # ──────────────────────────────────────────────────────
-# lin105.tsp  length=20362.76
+# lin105.tsp  length=17757.94
 # ──────────────────────────────────────────────────────
 def heuristic(dist_matrix):
     import numpy as np
@@ -939,7 +939,7 @@ def heuristic(dist_matrix):
         scores = []
         for j in range(n):
             if not visited[j]:
-                score = dist_matrix[current][j]
+                score = dist_matrix[current][j] / dist_matrix[j][0]
             else:
                 score = np.inf
             scores.append(score)
@@ -951,7 +951,7 @@ def heuristic(dist_matrix):
 
 
 # ──────────────────────────────────────────────────────
-# lin318.tsp  length=54033.58
+# lin318.tsp  length=53523.35
 # ──────────────────────────────────────────────────────
 def heuristic(dist_matrix):
     import numpy as np
@@ -964,7 +964,7 @@ def heuristic(dist_matrix):
         scores = []
         for j in range(n):
             if not visited[j]:
-                score = dist_matrix[current][j]
+                score = dist_matrix[current][j] * dist_matrix[j][0]
             else:
                 score = np.inf
             scores.append(score)
@@ -976,7 +976,7 @@ def heuristic(dist_matrix):
 
 
 # ──────────────────────────────────────────────────────
-# linhp318.tsp  length=54033.58
+# linhp318.tsp  length=51566.55
 # ──────────────────────────────────────────────────────
 def heuristic(dist_matrix):
     import numpy as np
@@ -989,7 +989,7 @@ def heuristic(dist_matrix):
         scores = []
         for j in range(n):
             if not visited[j]:
-                score = dist_matrix[current][j]
+                score = (dist_matrix[current][j] ** 0.5) / (dist_matrix[j][0] ** 0.5)
             else:
                 score = np.inf
             scores.append(score)
@@ -1076,7 +1076,7 @@ def heuristic(dist_matrix):
 
 
 # ──────────────────────────────────────────────────────
-# pcb442.tsp  length=61984.05
+# pcb442.tsp  length=59726.28
 # ──────────────────────────────────────────────────────
 def heuristic(dist_matrix):
     import numpy as np
@@ -1089,7 +1089,7 @@ def heuristic(dist_matrix):
         scores = []
         for j in range(n):
             if not visited[j]:
-                score = dist_matrix[current][j]
+                score = dist_matrix[current][j] + dist_matrix[j][0] / n
             else:
                 score = np.inf
             scores.append(score)
@@ -1226,7 +1226,7 @@ def heuristic(dist_matrix):
 
 
 # ──────────────────────────────────────────────────────
-# pr152.tsp  length=85702.95
+# pr152.tsp  length=82690.80
 # ──────────────────────────────────────────────────────
 def heuristic(dist_matrix):
     import numpy as np
@@ -1239,7 +1239,7 @@ def heuristic(dist_matrix):
         scores = []
         for j in range(n):
             if not visited[j]:
-                score = dist_matrix[current][j]
+                score = 0.7 * dist_matrix[current][j] + 0.3 * dist_matrix[j][0]
             else:
                 score = np.inf
             scores.append(score)
@@ -1251,7 +1251,7 @@ def heuristic(dist_matrix):
 
 
 # ──────────────────────────────────────────────────────
-# pr226.tsp  length=94685.45
+# pr226.tsp  length=94166.33
 # ──────────────────────────────────────────────────────
 def heuristic(dist_matrix):
     import numpy as np
@@ -1264,7 +1264,7 @@ def heuristic(dist_matrix):
         scores = []
         for j in range(n):
             if not visited[j]:
-                score = dist_matrix[current][j]
+                score = dist_matrix[current][j] + dist_matrix[j][0] / n
             else:
                 score = np.inf
             scores.append(score)
@@ -1301,7 +1301,7 @@ def heuristic(dist_matrix):
 
 
 # ──────────────────────────────────────────────────────
-# pr299.tsp  length=59899.01
+# pr299.tsp  length=59013.74
 # ──────────────────────────────────────────────────────
 def heuristic(dist_matrix):
     import numpy as np
@@ -1314,7 +1314,7 @@ def heuristic(dist_matrix):
         scores = []
         for j in range(n):
             if not visited[j]:
-                score = dist_matrix[current][j]
+                score = dist_matrix[current][j] / 1.5 + dist_matrix[j][0] ** 0.7
             else:
                 score = np.inf
             scores.append(score)
@@ -1351,7 +1351,7 @@ def heuristic(dist_matrix):
 
 
 # ──────────────────────────────────────────────────────
-# pr76.tsp  length=153461.92
+# pr76.tsp  length=142519.92
 # ──────────────────────────────────────────────────────
 def heuristic(dist_matrix):
     import numpy as np
@@ -1364,7 +1364,7 @@ def heuristic(dist_matrix):
         scores = []
         for j in range(n):
             if not visited[j]:
-                score = dist_matrix[current][j]
+                score = dist_matrix[current][j] * dist_matrix[j][0]
             else:
                 score = np.inf
             scores.append(score)
@@ -1376,7 +1376,7 @@ def heuristic(dist_matrix):
 
 
 # ──────────────────────────────────────────────────────
-# rat195.tsp  length=2761.96
+# rat195.tsp  length=2681.56
 # ──────────────────────────────────────────────────────
 def heuristic(dist_matrix):
     import numpy as np
@@ -1389,7 +1389,7 @@ def heuristic(dist_matrix):
         scores = []
         for j in range(n):
             if not visited[j]:
-                score = dist_matrix[current][j]
+                score = dist_matrix[current][j] / (dist_matrix[j][0] + 1)
             else:
                 score = np.inf
             scores.append(score)
@@ -1401,7 +1401,7 @@ def heuristic(dist_matrix):
 
 
 # ──────────────────────────────────────────────────────
-# rat575.tsp  length=8449.32
+# rat575.tsp  length=8335.39
 # ──────────────────────────────────────────────────────
 def heuristic(dist_matrix):
     import numpy as np
@@ -1414,7 +1414,7 @@ def heuristic(dist_matrix):
         scores = []
         for j in range(n):
             if not visited[j]:
-                score = dist_matrix[current][j]
+                score = dist_matrix[current][j] + 0.5 * dist_matrix[j][0]
             else:
                 score = np.inf
             scores.append(score)
@@ -1426,7 +1426,7 @@ def heuristic(dist_matrix):
 
 
 # ──────────────────────────────────────────────────────
-# rat783.tsp  length=11255.07
+# rat783.tsp  length=10840.75
 # ──────────────────────────────────────────────────────
 def heuristic(dist_matrix):
     import numpy as np
@@ -1439,7 +1439,7 @@ def heuristic(dist_matrix):
         scores = []
         for j in range(n):
             if not visited[j]:
-                score = dist_matrix[current][j]
+                score = dist_matrix[current][j] ** 0.5 + dist_matrix[j][0] ** 0.5
             else:
                 score = np.inf
             scores.append(score)
@@ -1451,7 +1451,7 @@ def heuristic(dist_matrix):
 
 
 # ──────────────────────────────────────────────────────
-# rat99.tsp  length=1564.72
+# rat99.tsp  length=1433.48
 # ──────────────────────────────────────────────────────
 def heuristic(dist_matrix):
     import numpy as np
@@ -1464,7 +1464,7 @@ def heuristic(dist_matrix):
         scores = []
         for j in range(n):
             if not visited[j]:
-                score = dist_matrix[current][j]
+                score = (dist_matrix[current][j] + dist_matrix[j][current]) / dist_matrix[j][0]
             else:
                 score = np.inf
             scores.append(score)
@@ -1476,7 +1476,7 @@ def heuristic(dist_matrix):
 
 
 # ──────────────────────────────────────────────────────
-# rd100.tsp  length=9941.16
+# rd100.tsp  length=9310.94
 # ──────────────────────────────────────────────────────
 def heuristic(dist_matrix):
     import numpy as np
@@ -1489,7 +1489,7 @@ def heuristic(dist_matrix):
         scores = []
         for j in range(n):
             if not visited[j]:
-                score = dist_matrix[current][j]
+                score = dist_matrix[current][j] + dist_matrix[j][0] / 2
             else:
                 score = np.inf
             scores.append(score)
@@ -1526,7 +1526,7 @@ def heuristic(dist_matrix):
 
 
 # ──────────────────────────────────────────────────────
-# rl1304.tsp  length=339797.47
+# rl1304.tsp  length=332006.83
 # ──────────────────────────────────────────────────────
 def heuristic(dist_matrix):
     import numpy as np
@@ -1539,7 +1539,7 @@ def heuristic(dist_matrix):
         scores = []
         for j in range(n):
             if not visited[j]:
-                score = dist_matrix[current][j]
+                score = dist_matrix[current][j] + dist_matrix[j][0] / 2
             else:
                 score = np.inf
             scores.append(score)
@@ -1551,7 +1551,7 @@ def heuristic(dist_matrix):
 
 
 # ──────────────────────────────────────────────────────
-# rl1323.tsp  length=332094.97
+# rl1323.tsp  length=330903.20
 # ──────────────────────────────────────────────────────
 def heuristic(dist_matrix):
     import numpy as np
@@ -1564,7 +1564,7 @@ def heuristic(dist_matrix):
         scores = []
         for j in range(n):
             if not visited[j]:
-                score = dist_matrix[current][j]
+                score = dist_matrix[current][j] + dist_matrix[j][0] / n
             else:
                 score = np.inf
             scores.append(score)
@@ -1626,7 +1626,7 @@ def heuristic(dist_matrix):
 
 
 # ──────────────────────────────────────────────────────
-# ts225.tsp  length=152493.55
+# ts225.tsp  length=145470.35
 # ──────────────────────────────────────────────────────
 def heuristic(dist_matrix):
     import numpy as np
@@ -1639,7 +1639,7 @@ def heuristic(dist_matrix):
         scores = []
         for j in range(n):
             if not visited[j]:
-                score = dist_matrix[current][j]
+                score = dist_matrix[current][j] ** 1.2 + dist_matrix[j][0] / 3.0
             else:
                 score = np.inf
             scores.append(score)
@@ -1676,7 +1676,7 @@ def heuristic(dist_matrix):
 
 
 # ──────────────────────────────────────────────────────
-# u1060.tsp  length=296543.89
+# u1060.tsp  length=289666.37
 # ──────────────────────────────────────────────────────
 def heuristic(dist_matrix):
     import numpy as np
@@ -1689,7 +1689,7 @@ def heuristic(dist_matrix):
         scores = []
         for j in range(n):
             if not visited[j]:
-                score = dist_matrix[current][j]
+                score = dist_matrix[current][j] + dist_matrix[j][0] / n
             else:
                 score = np.inf
             scores.append(score)
@@ -1701,7 +1701,7 @@ def heuristic(dist_matrix):
 
 
 # ──────────────────────────────────────────────────────
-# u1432.tsp  length=188815.01
+# u1432.tsp  length=185267.13
 # ──────────────────────────────────────────────────────
 def heuristic(dist_matrix):
     import numpy as np
@@ -1714,7 +1714,7 @@ def heuristic(dist_matrix):
         scores = []
         for j in range(n):
             if not visited[j]:
-                score = dist_matrix[current][j]
+                score = dist_matrix[current][j] ** 0.5 + dist_matrix[j][0] ** 0.5
             else:
                 score = np.inf
             scores.append(score)
@@ -1726,7 +1726,7 @@ def heuristic(dist_matrix):
 
 
 # ──────────────────────────────────────────────────────
-# u159.tsp  length=54669.03
+# u159.tsp  length=52205.46
 # ──────────────────────────────────────────────────────
 def heuristic(dist_matrix):
     import numpy as np
@@ -1739,7 +1739,7 @@ def heuristic(dist_matrix):
         scores = []
         for j in range(n):
             if not visited[j]:
-                score = dist_matrix[current][j]
+                score = 0.7 * dist_matrix[current][j] + 0.2 * dist_matrix[j][current] + 0.1 * dist_matrix[j][0]
             else:
                 score = np.inf
             scores.append(score)
@@ -1751,7 +1751,7 @@ def heuristic(dist_matrix):
 
 
 # ──────────────────────────────────────────────────────
-# u1817.tsp  length=71691.24
+# u1817.tsp  length=69292.25
 # ──────────────────────────────────────────────────────
 def heuristic(dist_matrix):
     import numpy as np
@@ -1764,7 +1764,7 @@ def heuristic(dist_matrix):
         scores = []
         for j in range(n):
             if not visited[j]:
-                score = dist_matrix[current][j]
+                score = dist_matrix[current][j] + dist_matrix[j][0] / n
             else:
                 score = np.inf
             scores.append(score)
@@ -1826,7 +1826,7 @@ def heuristic(dist_matrix):
 
 
 # ──────────────────────────────────────────────────────
-# ulysses16.tsp  length=104.73
+# ulysses16.tsp  length=88.72
 # ──────────────────────────────────────────────────────
 def heuristic(dist_matrix):
     import numpy as np
@@ -1839,7 +1839,7 @@ def heuristic(dist_matrix):
         scores = []
         for j in range(n):
             if not visited[j]:
-                score = dist_matrix[current][j]
+                score = 0.7 * dist_matrix[current][j] + 0.3 * dist_matrix[j][0]
             else:
                 score = np.inf
             scores.append(score)
